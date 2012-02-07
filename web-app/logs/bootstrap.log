@@ -1,0 +1,360 @@
+INFO  10.07.2011 01:46:08  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 01:46:08  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 01:46:08  Repository [userroles] has been initialized.
+INFO  10.07.2011 01:46:08  Repository [config] has been initialized.
+INFO  10.07.2011 01:46:08  Repository [website] has been initialized.
+INFO  10.07.2011 01:46:08  Repository [usergroups] has been initialized.
+INFO  10.07.2011 01:46:08  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 01:46:08  Repository [users] has been initialized.
+INFO  10.07.2011 01:49:55  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 01:49:55  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 01:49:55  Repository [userroles] has been initialized.
+INFO  10.07.2011 01:49:55  Repository [config] has been initialized.
+INFO  10.07.2011 01:49:55  Repository [website] has been initialized.
+INFO  10.07.2011 01:49:55  Repository [usergroups] has been initialized.
+INFO  10.07.2011 01:49:55  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 01:49:55  Repository [users] has been initialized.
+INFO  10.07.2011 01:53:52  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 01:53:52  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 01:53:52  Repository [userroles] has been initialized.
+INFO  10.07.2011 01:53:52  Repository [config] has been initialized.
+INFO  10.07.2011 01:53:52  Repository [website] has been initialized.
+INFO  10.07.2011 01:53:52  Repository [usergroups] has been initialized.
+INFO  10.07.2011 01:53:52  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 01:53:52  Repository [users] has been initialized.
+INFO  10.07.2011 01:58:19  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 01:58:19  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 01:58:19  Repository [userroles] has been initialized.
+INFO  10.07.2011 01:58:19  Repository [config] has been initialized.
+INFO  10.07.2011 01:58:19  Repository [website] has been initialized.
+INFO  10.07.2011 01:58:19  Repository [usergroups] has been initialized.
+INFO  10.07.2011 01:58:19  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 01:58:19  Repository [users] has been initialized.
+INFO  10.07.2011 02:07:09  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 02:07:09  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 02:07:09  Repository [userroles] has been initialized.
+INFO  10.07.2011 02:07:09  Repository [config] has been initialized.
+INFO  10.07.2011 02:07:09  Repository [website] has been initialized.
+INFO  10.07.2011 02:07:09  Repository [usergroups] has been initialized.
+INFO  10.07.2011 02:07:09  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 02:07:09  Repository [users] has been initialized.
+INFO  10.07.2011 16:28:10  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 16:28:10  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 16:28:10  Repository [userroles] has been initialized.
+INFO  10.07.2011 16:28:10  Repository [config] has been initialized.
+INFO  10.07.2011 16:28:10  Repository [website] has been initialized.
+INFO  10.07.2011 16:28:10  Repository [usergroups] has been initialized.
+INFO  10.07.2011 16:28:10  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 16:28:10  Repository [users] has been initialized.
+INFO  10.07.2011 16:34:37  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 16:34:37  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 16:34:37  Repository [userroles] has been initialized.
+INFO  10.07.2011 16:34:37  Repository [config] has been initialized.
+INFO  10.07.2011 16:34:37  Repository [website] has been initialized.
+INFO  10.07.2011 16:34:37  Repository [usergroups] has been initialized.
+INFO  10.07.2011 16:34:37  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 16:34:37  Repository [users] has been initialized.
+INFO  10.07.2011 18:03:07  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 18:03:07  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 18:03:07  Repository [userroles] has been initialized.
+INFO  10.07.2011 18:03:07  Repository [config] has been initialized.
+INFO  10.07.2011 18:03:07  Repository [website] has been initialized.
+INFO  10.07.2011 18:03:07  Repository [usergroups] has been initialized.
+INFO  10.07.2011 18:03:07  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 18:03:07  Repository [users] has been initialized.
+INFO  10.07.2011 18:17:12  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 18:17:12  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 18:17:12  Repository [userroles] has been initialized.
+INFO  10.07.2011 18:17:12  Repository [config] has been initialized.
+INFO  10.07.2011 18:17:12  Repository [website] has been initialized.
+INFO  10.07.2011 18:17:12  Repository [usergroups] has been initialized.
+INFO  10.07.2011 18:17:12  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 18:17:12  Repository [users] has been initialized.
+INFO  10.07.2011 18:26:42  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 18:26:42  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 18:26:42  Repository [userroles] has been initialized.
+INFO  10.07.2011 18:26:42  Repository [config] has been initialized.
+INFO  10.07.2011 18:26:42  Repository [website] has been initialized.
+INFO  10.07.2011 18:26:42  Repository [usergroups] has been initialized.
+INFO  10.07.2011 18:26:42  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 18:26:42  Repository [users] has been initialized.
+INFO  10.07.2011 19:03:57  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 19:03:57  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 19:03:57  Repository [userroles] has been initialized.
+INFO  10.07.2011 19:03:57  Repository [config] has been initialized.
+INFO  10.07.2011 19:03:57  Repository [website] has been initialized.
+INFO  10.07.2011 19:03:57  Repository [usergroups] has been initialized.
+INFO  10.07.2011 19:03:57  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 19:03:57  Repository [users] has been initialized.
+INFO  10.07.2011 19:09:59  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 19:09:59  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 19:09:59  Repository [userroles] has been initialized.
+INFO  10.07.2011 19:09:59  Repository [config] has been initialized.
+INFO  10.07.2011 19:09:59  Repository [website] has been initialized.
+INFO  10.07.2011 19:09:59  Repository [usergroups] has been initialized.
+INFO  10.07.2011 19:09:59  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 19:09:59  Repository [users] has been initialized.
+INFO  10.07.2011 20:17:43  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 20:17:43  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 20:17:43  Repository [userroles] has been initialized.
+INFO  10.07.2011 20:17:43  Repository [config] has been initialized.
+INFO  10.07.2011 20:17:43  Repository [website] has been initialized.
+INFO  10.07.2011 20:17:43  Repository [usergroups] has been initialized.
+INFO  10.07.2011 20:17:43  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 20:17:43  Repository [users] has been initialized.
+INFO  10.07.2011 20:20:09  Trying to initialize repositories from: 
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\author
+    C:\dev\intellij-projects\grails-mgnl\web-app\WEB-INF\bootstrap\common
+INFO  10.07.2011 20:20:09  Repository [mgnlSystem] has been initialized.
+INFO  10.07.2011 20:20:09  Repository [userroles] has been initialized.
+INFO  10.07.2011 20:20:09  Repository [config] has been initialized.
+INFO  10.07.2011 20:20:09  Repository [website] has been initialized.
+INFO  10.07.2011 20:20:09  Repository [usergroups] has been initialized.
+INFO  10.07.2011 20:20:09  Repository [mgnlVersion] has been initialized.
+INFO  10.07.2011 20:20:09  Repository [users] has been initialized.
+INFO  11.07.2011 08:41:39  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 08:41:39  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 08:41:39  Repository [userroles] has been initialized.
+INFO  11.07.2011 08:41:39  Repository [config] has been initialized.
+INFO  11.07.2011 08:41:39  Repository [website] has been initialized.
+INFO  11.07.2011 08:41:39  Repository [usergroups] has been initialized.
+INFO  11.07.2011 08:41:39  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 08:41:39  Repository [users] has been initialized.
+INFO  11.07.2011 09:13:32  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 09:13:32  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 09:13:32  Repository [userroles] has been initialized.
+INFO  11.07.2011 09:13:32  Repository [config] has been initialized.
+INFO  11.07.2011 09:13:32  Repository [website] has been initialized.
+INFO  11.07.2011 09:13:32  Repository [usergroups] has been initialized.
+INFO  11.07.2011 09:13:32  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 09:13:32  Repository [users] has been initialized.
+INFO  11.07.2011 09:24:25  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 09:24:25  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 09:24:25  Repository [userroles] has been initialized.
+INFO  11.07.2011 09:24:25  Repository [config] has been initialized.
+INFO  11.07.2011 09:24:25  Repository [website] has been initialized.
+INFO  11.07.2011 09:24:25  Repository [usergroups] has been initialized.
+INFO  11.07.2011 09:24:25  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 09:24:25  Repository [users] has been initialized.
+INFO  11.07.2011 09:46:41  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 09:46:42  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 09:46:42  Repository [userroles] has been initialized.
+INFO  11.07.2011 09:46:42  Repository [config] has been initialized.
+INFO  11.07.2011 09:46:42  Repository [website] has been initialized.
+INFO  11.07.2011 09:46:42  Repository [usergroups] has been initialized.
+INFO  11.07.2011 09:46:42  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 09:46:42  Repository [users] has been initialized.
+INFO  11.07.2011 09:50:18  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 09:50:18  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 09:50:18  Repository [userroles] has been initialized.
+INFO  11.07.2011 09:50:18  Repository [config] has been initialized.
+INFO  11.07.2011 09:50:18  Repository [website] has been initialized.
+INFO  11.07.2011 09:50:18  Repository [usergroups] has been initialized.
+INFO  11.07.2011 09:50:18  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 09:50:18  Repository [users] has been initialized.
+INFO  11.07.2011 10:18:49  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:18:49  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:18:49  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:18:49  Repository [config] has been initialized.
+INFO  11.07.2011 10:18:49  Repository [website] has been initialized.
+INFO  11.07.2011 10:18:49  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:18:49  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:18:49  Repository [users] has been initialized.
+INFO  11.07.2011 10:20:52  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:20:52  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:20:52  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:20:52  Repository [config] has been initialized.
+INFO  11.07.2011 10:20:52  Repository [website] has been initialized.
+INFO  11.07.2011 10:20:52  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:20:52  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:20:52  Repository [users] has been initialized.
+INFO  11.07.2011 10:25:32  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:25:32  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:25:32  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:25:32  Repository [config] has been initialized.
+INFO  11.07.2011 10:25:32  Repository [website] has been initialized.
+INFO  11.07.2011 10:25:32  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:25:32  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:25:32  Repository [users] has been initialized.
+INFO  11.07.2011 10:29:27  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:29:27  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:29:27  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:29:27  Repository [config] has been initialized.
+INFO  11.07.2011 10:29:27  Repository [website] has been initialized.
+INFO  11.07.2011 10:29:27  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:29:27  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:29:27  Repository [users] has been initialized.
+INFO  11.07.2011 10:45:15  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:45:15  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:45:15  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:45:15  Repository [config] has been initialized.
+INFO  11.07.2011 10:45:15  Repository [website] has been initialized.
+INFO  11.07.2011 10:45:15  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:45:15  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:45:15  Repository [users] has been initialized.
+INFO  11.07.2011 10:49:35  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:49:35  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:49:35  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:49:35  Repository [config] has been initialized.
+INFO  11.07.2011 10:49:35  Repository [website] has been initialized.
+INFO  11.07.2011 10:49:35  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:49:35  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:49:35  Repository [users] has been initialized.
+INFO  11.07.2011 10:53:47  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:53:47  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:53:47  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:53:47  Repository [config] has been initialized.
+INFO  11.07.2011 10:53:47  Repository [website] has been initialized.
+INFO  11.07.2011 10:53:47  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:53:47  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:53:47  Repository [users] has been initialized.
+INFO  11.07.2011 10:58:49  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 10:58:49  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 10:58:49  Repository [userroles] has been initialized.
+INFO  11.07.2011 10:58:49  Repository [config] has been initialized.
+INFO  11.07.2011 10:58:49  Repository [website] has been initialized.
+INFO  11.07.2011 10:58:49  Repository [usergroups] has been initialized.
+INFO  11.07.2011 10:58:49  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 10:58:49  Repository [users] has been initialized.
+INFO  11.07.2011 11:01:22  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 11:01:22  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 11:01:22  Repository [userroles] has been initialized.
+INFO  11.07.2011 11:01:22  Repository [config] has been initialized.
+INFO  11.07.2011 11:01:22  Repository [website] has been initialized.
+INFO  11.07.2011 11:01:22  Repository [usergroups] has been initialized.
+INFO  11.07.2011 11:01:22  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 11:01:22  Repository [users] has been initialized.
+INFO  11.07.2011 11:09:41  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 11:09:41  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 11:09:41  Repository [userroles] has been initialized.
+INFO  11.07.2011 11:09:41  Repository [config] has been initialized.
+INFO  11.07.2011 11:09:41  Repository [website] has been initialized.
+INFO  11.07.2011 11:09:41  Repository [usergroups] has been initialized.
+INFO  11.07.2011 11:09:41  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 11:09:41  Repository [users] has been initialized.
+INFO  11.07.2011 11:22:05  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 11:22:05  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 11:22:05  Repository [userroles] has been initialized.
+INFO  11.07.2011 11:22:05  Repository [config] has been initialized.
+INFO  11.07.2011 11:22:05  Repository [website] has been initialized.
+INFO  11.07.2011 11:22:05  Repository [usergroups] has been initialized.
+INFO  11.07.2011 11:22:05  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 11:22:05  Repository [users] has been initialized.
+INFO  11.07.2011 11:50:41  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 11:50:41  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 11:50:41  Repository [userroles] has been initialized.
+INFO  11.07.2011 11:50:41  Repository [config] has been initialized.
+INFO  11.07.2011 11:50:41  Repository [website] has been initialized.
+INFO  11.07.2011 11:50:41  Repository [usergroups] has been initialized.
+INFO  11.07.2011 11:50:41  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 11:50:41  Repository [users] has been initialized.
+INFO  11.07.2011 13:08:23  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 13:08:23  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 13:08:23  Repository [userroles] has been initialized.
+INFO  11.07.2011 13:08:23  Repository [config] has been initialized.
+INFO  11.07.2011 13:08:23  Repository [website] has been initialized.
+INFO  11.07.2011 13:08:23  Repository [usergroups] has been initialized.
+INFO  11.07.2011 13:08:23  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 13:08:23  Repository [users] has been initialized.
+INFO  11.07.2011 14:14:29  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 14:14:29  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 14:14:29  Repository [userroles] has been initialized.
+INFO  11.07.2011 14:14:29  Repository [config] has been initialized.
+INFO  11.07.2011 14:14:29  Repository [website] has been initialized.
+INFO  11.07.2011 14:14:29  Repository [usergroups] has been initialized.
+INFO  11.07.2011 14:14:29  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 14:14:29  Repository [users] has been initialized.
+INFO  11.07.2011 14:50:51  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  11.07.2011 14:50:51  Repository [mgnlSystem] has been initialized.
+INFO  11.07.2011 14:50:51  Repository [userroles] has been initialized.
+INFO  11.07.2011 14:50:51  Repository [config] has been initialized.
+INFO  11.07.2011 14:50:51  Repository [website] has been initialized.
+INFO  11.07.2011 14:50:51  Repository [usergroups] has been initialized.
+INFO  11.07.2011 14:50:51  Repository [mgnlVersion] has been initialized.
+INFO  11.07.2011 14:50:51  Repository [users] has been initialized.
+INFO  14.07.2011 14:00:45  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  14.07.2011 14:00:45  Repository [mgnlSystem] has been initialized.
+INFO  14.07.2011 14:00:45  Repository [userroles] has been initialized.
+INFO  14.07.2011 14:00:45  Repository [config] has been initialized.
+INFO  14.07.2011 14:00:45  Repository [website] has been initialized.
+INFO  14.07.2011 14:00:45  Repository [usergroups] has been initialized.
+INFO  14.07.2011 14:00:45  Repository [mgnlVersion] has been initialized.
+INFO  14.07.2011 14:00:45  Repository [users] has been initialized.
+INFO  15.07.2011 11:34:51  Trying to initialize repositories from: 
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/author
+    /Users/kimmo/intellij-projects/grails-mgnl/web-app/WEB-INF/bootstrap/common
+INFO  15.07.2011 11:34:51  Repository [mgnlSystem] has been initialized.
+INFO  15.07.2011 11:34:51  Repository [userroles] has been initialized.
+INFO  15.07.2011 11:34:51  Repository [config] has been initialized.
+INFO  15.07.2011 11:34:51  Repository [website] has been initialized.
+INFO  15.07.2011 11:34:51  Repository [usergroups] has been initialized.
+INFO  15.07.2011 11:34:51  Repository [mgnlVersion] has been initialized.
+INFO  15.07.2011 11:34:51  Repository [users] has been initialized.
