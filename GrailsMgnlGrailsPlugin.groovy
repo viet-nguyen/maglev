@@ -33,23 +33,18 @@ class GrailsMgnlGrailsPlugin {
 			"web-app/js/**"
 	]
 
-	// TODO Fill in these fields
-	def author = "Your name"
-	def authorEmail = ""
-	def title = "Plugin summary/headline"
+	def author = "Kimmo Björnsson"
+	def authorEmail = "kimmo@kokaihop.se"
+	def title = "Grails Magnolia plugin"
 	def description = '''\\
-Brief description of the plugin.
+Runs Magnolia CMS as a plugin in Grails
 '''
 	def watchedResources = ["file:./grails-app/controllers/**/*Controller.groovy",
                             "file:./plugins/*/grails-app/controllers/**/*Controller.groovy"]
 
-	// URL to the plugin's documentation
 	def documentation = "http://grails.org/plugin/grails-mgnl"
 
 	def doWithWebDescriptor = { xml ->
-
-		System.out.println "MAGNOLIA PLUGIN: in doWithWebDescriptor"
-
 		def contextParam = xml.'context-param'
 
         contextParam[contextParam.size() - 1] + {
@@ -71,15 +66,9 @@ Brief description of the plugin.
 			}
 		}
 
-		// remove listener org.codehaus.groovy.grails.web.context.GrailsContextLoaderListener ???
-
-
 	}
 
 	def doWithSpring = { applicationContext ->
-
-		System.out.println "MAGNOLIA PLUGIN: in doWithSpring"
-
 		grailsWebRequestFilterBean(org.codehaus.groovy.grails.web.servlet.mvc.GrailsWebRequestFilter) { bean ->
 			bean.'lazyInit' = true
 		}
@@ -89,16 +78,11 @@ Brief description of the plugin.
 		hiddenHttpMethodFilterBean(org.codehaus.groovy.grails.web.filters.HiddenHttpMethodFilter) { bean ->
 			bean.'lazyInit' = true
 		}
-
 	}
 
 	def doWithDynamicMethods = { ctx ->
-		println "In do with dynamicMethods"
-
 		def grailsApplication = ctx.getBean('grailsApplication')
-
 		addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
-
 	}
 
 	private def addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication) {
@@ -143,29 +127,13 @@ Brief description of the plugin.
 		}
 	}
 
-	def doWithApplicationContext = { applicationContext ->
-
-		System.out.println "MAGNOLIA PLUGIN: in doWithApplicationContext"
-
-	}
-
 	def onChange = { event ->
-		// TODO Implement code that is executed when any artefact that this plugin is
-		// watching is modified and reloaded. The event contains: event.source,
-		// event.application, event.manager, event.ctx, and event.plugin.-
-
-
         BlossomModule.getParagraphRegistry().getParagraphs().clear()
         BlossomModule.getParagraphRegistry().afterPropertiesSet()
-        //TOOD: don't use a static. Need to figure out where it's hiding
         GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
 
         def grailsApplication = event.ctx.getBean('grailsApplication')
         addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
 	}
 
-	def onConfigChange = { event ->
-		// TODO Implement code that is executed when the project configuration changes.
-		// The event is the same as for 'onChange'.
-	}
 }
