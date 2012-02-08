@@ -20,10 +20,16 @@ eventWebXmlEnd = { String tmpfile ->
     def grailsDispatcher = servlet.findAll {node -> node.'servlet-name'.text() == 'grails'}
     grailsDispatcher.replaceNode {}
 
+    def gsp = servlet.findAll {node -> node.'servlet-name'.text() == 'gsp'}
+    grailsDispatcher.replaceNode {}
+
     def servletMappings = xml.'servlet-mapping'
-    def cnt2 = servletMappings.size()
     def grailsServletMapping = servletMappings.findAll {it.'servlet-name'.text() == 'grails'}
     grailsServletMapping.replaceNode {}
+
+
+    def gspMapping = servletMappings.findAll {it.'servlet-name'.text() == 'gsp'}
+    gspMapping.replaceNode {}
 
     def listeners = xml.'listener'
     def grailsListener = listeners.findAll {it.'listener-class'.text() == 'org.codehaus.groovy.grails.web.context.GrailsContextLoaderListener'}

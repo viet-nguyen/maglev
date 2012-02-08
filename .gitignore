@@ -13,3 +13,4 @@ web-app/logs
 lib
 derby.log
 web-app/logs
+web-app/WEB-INF/web.xml
