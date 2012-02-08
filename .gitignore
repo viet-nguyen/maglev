@@ -7,3 +7,9 @@ target
 .settings
 out/
 *.DS_Store
+repositories
+web-app/WEB-INF/config
+web-app/logs
+lib
+derby.log
+web-app/logs
