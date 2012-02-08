@@ -137,7 +137,7 @@ public class ContentMap implements Map<String, Object> {
         if (isSpecialProperty(strKey)) {
             final Method method = specialProperties.get(StringUtils.removeStart(strKey, "@"));
             try {
-                return method.invoke(content, null);
+                return method.invoke(content,(Object[]) null);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

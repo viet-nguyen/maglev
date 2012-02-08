@@ -1893,3 +1893,1033 @@ INFO   info.magnolia.cms.filters.CompositeFilter 15.07.2011 11:35:29 -- Initiali
 INFO   info.magnolia.cms.filters.CompositeFilter 15.07.2011 11:35:29 -- Initializing filter [rendering]
 INFO   info.magnolia.module.admininterface.AdminTreeMVCHandler 15.07.2011 11:36:18 -- Moving node from /untitled to /test
 INFO   grails.app.controller.grails.mgnl.TextController 15.07.2011 11:36:33 -- test log
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:22:45 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:22:45 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 21:22:45 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 21:22:45 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 21:22:52 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 21:22:52 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:52 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:22:53 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:22:53 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:22:53 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:22:53 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:22:53 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:22:53 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:22:53 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:22:54 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:22:54 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:22:54 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:22:54 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:22:54 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:22:54 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:22:54 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:22:54 -- Configuration loaded (took 9 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:27:04 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:27:04 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 21:27:04 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 21:27:09 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:09 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:09 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 21:27:09 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:09 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:09 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:09 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:09 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:27:10 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:27:10 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:27:10 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:27:10 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:27:11 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:27:11 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:27:11 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:27:11 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:27:12 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:27:12 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:27:12 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:27:12 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:27:12 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:27:12 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:27:13 -- Configuration loaded (took 8 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:33:33 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:33:33 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 21:33:33 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 21:33:33 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 21:33:38 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 21:33:38 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:33:38 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:33:38 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:33:39 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:33:39 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:33:39 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:33:39 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:33:39 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:33:40 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:33:40 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:33:40 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:33:40 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:33:40 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:33:40 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:33:41 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:33:41 -- Configuration loaded (took 8 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:35:33 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:35:33 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 21:35:33 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 21:35:34 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 21:35:39 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 21:35:39 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:35:39 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:35:39 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:35:39 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:35:40 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:35:40 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:35:40 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:35:40 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:35:40 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:35:40 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:35:41 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:35:41 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:35:41 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:35:41 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:35:41 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:35:41 -- Configuration loaded (took 8 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:40:14 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:40:14 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 21:40:14 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 21:40:14 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 21:40:24 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:24 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:24 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 21:40:24 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:24 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:24 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:24 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:24 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:25 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:35 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:40:35 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:40:35 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:40:35 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:40:35 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:40:35 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:40:35 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:40:35 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:40:38 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:40:38 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:40:39 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:40:39 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:40:39 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:40:39 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:40:40 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:40:40 -- Configuration loaded (took 26 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:49:59 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:49:59 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 21:50:00 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 21:50:00 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 21:50:00 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 21:50:04 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 21:50:04 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 21:50:04 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:50:04 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:50:04 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 21:50:04 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:50:05 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:50:05 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 21:50:05 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:50:05 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 21:50:05 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 21:50:06 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:50:06 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 21:50:06 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:50:06 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 21:50:06 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 21:50:06 -- Configuration loaded (took 6 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:01:19 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:01:19 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 22:01:19 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 22:01:19 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 22:01:23 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:23 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:23 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 22:01:23 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:23 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:23 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:23 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:23 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:24 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Starting module grailsModule
+ERROR  info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Can't start module grailsModule
+java.lang.IllegalStateException: Unable to locate ServletContext, is the ServletContextExposingContextListener configured in web.xml and placed before the MgnlServletContextListener?
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.getServletContext(BlossomModuleSupport.java:127)
+	at info.magnolia.module.blossom.module.BlossomModuleSupport.initRootWebApplicationContext(BlossomModuleSupport.java:80)
+	at com.altaworks.magnolia.GrailsModule.start(GrailsModule.java:14)
+	at info.magnolia.module.ModuleManagerImpl.startModule(ModuleManagerImpl.java:384)
+	at info.magnolia.module.ModuleManagerImpl.startModules(ModuleManagerImpl.java:330)
+	at info.magnolia.module.ui.ModuleManagerWebUI.onStartup(ModuleManagerWebUI.java:80)
+	at info.magnolia.cms.beans.config.ConfigLoader.load(ConfigLoader.java:107)
+	at info.magnolia.cms.servlets.MgnlServletContextListener$2.doExec(MgnlServletContextListener.java:207)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:434)
+	at info.magnolia.context.MgnlContext$VoidOp.exec(MgnlContext.java:432)
+	at info.magnolia.context.MgnlContext.doInSystemContext(MgnlContext.java:396)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.startServer(MgnlServletContextListener.java:205)
+	at info.magnolia.cms.servlets.MgnlServletContextListener.contextInitialized(MgnlServletContextListener.java:201)
+	at com.altaworks.magnolia.GrailsMgnlServletContextListener.contextInitialized(GrailsMgnlServletContextListener.java:29)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:01:25 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:01:25 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:01:25 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:01:25 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:01:25 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:01:25 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:01:25 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:01:26 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:01:26 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:01:26 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:01:26 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:01:26 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:01:26 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:01:26 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:01:26 -- Configuration loaded (took 7 seconds)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:05:17 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:05:17 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 22:05:17 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+WARN   org.apache.jackrabbit.core.util.RepositoryLock 07.02.2012 22:05:17 -- Existing lock file /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia/.lock detected. Repository was not shut down properly.
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 22:05:21 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:21 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 22:05:22 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:22 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 07.02.2012 22:05:23 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:05:26 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:05:26 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:05:26 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:05:26 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:05:26 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 07.02.2012 22:05:29 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 07.02.2012 22:05:38 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:05:39 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:05:39 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:05:39 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:05:39 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:05:39 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:05:39 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:05:39 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:05:40 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:05:40 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:05:40 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:05:40 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:05:40 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:05:40 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:05:40 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:05:40 -- Configuration loaded (took 23 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 07.02.2012 22:05:41 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:07:14 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:07:14 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 22:07:14 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 22:07:18 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 22:07:18 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:18 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 07.02.2012 22:07:19 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:07:24 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:07:24 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:07:24 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:07:24 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:07:24 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 07.02.2012 22:07:28 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 07.02.2012 22:07:36 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:07:37 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:07:37 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:07:37 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:07:37 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:07:37 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:07:37 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:07:37 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:07:38 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:07:38 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:07:38 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:07:38 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:07:38 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:07:38 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:07:39 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:07:39 -- Configuration loaded (took 24 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 07.02.2012 22:07:39 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:23:25 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:23:25 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 22:23:25 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 22:23:31 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 22:23:31 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:31 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:32 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 07.02.2012 22:23:39 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:23:43 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:23:43 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:23:43 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:23:43 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:23:43 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 07.02.2012 22:23:46 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 07.02.2012 22:23:56 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:23:56 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:23:56 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:23:56 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:23:56 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:23:56 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:23:56 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:23:56 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:23:57 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:23:57 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:23:57 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:23:57 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:23:57 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:23:57 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:23:58 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:23:58 -- Configuration loaded (took 32 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 07.02.2012 22:23:58 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:26:24 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:26:24 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 22:26:24 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 22:26:31 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 22:26:31 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:31 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:26:32 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 07.02.2012 22:26:38 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:26:45 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:26:45 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:26:45 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:26:45 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:26:45 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 07.02.2012 22:26:52 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 07.02.2012 22:27:04 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:27:05 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:27:05 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:27:05 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:27:05 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:27:05 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:27:05 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:27:05 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:27:06 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:27:06 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:27:06 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:27:06 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:27:06 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:27:06 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:27:06 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:27:06 -- Configuration loaded (took 42 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 07.02.2012 22:27:06 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:30:57 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 07.02.2012 22:30:57 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 07.02.2012 22:30:57 -- Loading repository at /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/workspace/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 07.02.2012 22:31:02 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:02 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 07.02.2012 22:31:03 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:03 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 07.02.2012 22:31:32 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:31:36 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:31:36 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:31:36 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:31:36 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 07.02.2012 22:31:36 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 07.02.2012 22:31:39 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 07.02.2012 22:31:52 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 07.02.2012 22:31:52 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:31:52 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:31:52 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 07.02.2012 22:31:53 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:31:53 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:31:53 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 07.02.2012 22:31:53 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:31:53 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 07.02.2012 22:31:53 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 07.02.2012 22:31:53 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:31:53 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 07.02.2012 22:31:53 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:31:53 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 07.02.2012 22:31:54 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 07.02.2012 22:31:54 -- Configuration loaded (took 56 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 07.02.2012 22:31:54 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 08.02.2012 08:27:16 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:27:16 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 08.02.2012 08:27:16 -- Loading repository at /Users/ake/Devel/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 08.02.2012 08:27:18 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:18 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 08.02.2012 08:27:19 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:19 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 08.02.2012 08:27:19 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:27:20 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:27:20 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:27:20 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:27:20 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:27:20 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 08.02.2012 08:27:22 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 08.02.2012 08:27:26 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:27:26 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 08:27:26 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 08:27:26 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 08:27:26 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 08:27:26 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 08:27:26 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 08:27:26 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 08.02.2012 08:27:26 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 08.02.2012 08:27:26 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:27:26 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 08.02.2012 08:27:26 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 08.02.2012 08:27:26 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 08.02.2012 08:27:26 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 08.02.2012 08:27:27 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 08.02.2012 08:27:27 -- Configuration loaded (took 10 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 08.02.2012 08:27:27 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 08.02.2012 08:45:20 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 08:45:20 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 08.02.2012 08:45:20 -- Loading repository at /Users/ake/Devel/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 08.02.2012 08:45:22 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 08.02.2012 08:45:22 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:22 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 08.02.2012 08:45:23 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:45:24 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:45:24 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:45:24 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:45:24 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 08:45:24 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 08.02.2012 08:45:26 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 08.02.2012 08:45:30 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 08:45:31 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 08:45:31 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 08:45:31 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 08:45:31 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 08:45:31 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 08:45:31 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 08:45:31 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 08.02.2012 08:45:31 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 08.02.2012 08:45:31 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 08:45:31 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 08.02.2012 08:45:31 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 08.02.2012 08:45:31 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 08.02.2012 08:45:31 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 08.02.2012 08:45:31 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 08.02.2012 08:45:31 -- Configuration loaded (took 11 seconds)
+ERROR  org.codehaus.groovy.grails.web.context.GrailsContextLoader 08.02.2012 08:45:31 -- Error executing bootstraps: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+java.lang.IllegalStateException: Cannot initialize context because there is already a root application context present - check whether you have multiple ContextLoader* definitions in your web.xml!
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:680)
+INFO   info.magnolia.cms.beans.config.ConfigLoader 08.02.2012 09:08:14 -- Initializing content repositories
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading JCR
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace website
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace config
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace users
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace userroles
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace usergroups
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace mgnlSystem
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading workspace mgnlVersion
+INFO   info.magnolia.cms.beans.config.ContentRepository 08.02.2012 09:08:14 -- Loading JCR magnolia
+INFO   info.magnolia.jackrabbit.ProviderImpl 08.02.2012 09:08:14 -- Loading repository at /Users/ake/Devel/Grails-Magnolia-Plugin/web-app/repositories/magnolia (config file: /Users/ake/Devel/Grails-Magnolia-Plugin/web-app/WEB-INF/config/repo-conf/jackrabbit-bundle-derby-search.xml) - cluster id: "<unset>"
+INFO   info.magnolia.module.webapp.WebappVersionHandler 08.02.2012 09:08:17 -- Content was found in the repository, will not bootstrap web-app.
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module core
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Starting module core
+INFO   info.magnolia.context.LifeTimeJCRSessionUtil 08.02.2012 09:08:17 -- Will handle lifetime sessions because the system context is of type interface info.magnolia.context.ThreadDependentSystemContext
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module exchange-simple
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module templating
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Starting module templating
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Starting module adminInterface
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module fckEditor
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module mail
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Starting module mail
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Starting module blossom
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Initializing module grailsModule
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:17 -- Starting module grailsModule
+WARN   grails.util.GrailsUtil 08.02.2012 09:08:17 -- [DEPRECATED] Method ApplicationHolder.setApplication(application) is deprecated and will be removed in a future version of Grails.
+DEBUG  grails.spring.BeanBuilder 08.02.2012 09:08:18 -- Configuring controller grails.mgnl.DemoTemplateController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 09:08:18 -- Configuring controller grails.mgnl.FrontPageDialogController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 09:08:18 -- Configuring controller grails.mgnl.PageLinkController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 09:08:18 -- Configuring controller grails.mgnl.PersonsController
+DEBUG  grails.spring.BeanBuilder 08.02.2012 09:08:18 -- Configuring controller grails.mgnl.TextController
+WARN   net.sf.ehcache.config.ConfigurationFactory 08.02.2012 09:08:20 -- No configuration found. Configuring ehcache from ehcache-failsafe.xml  found in the classpath: jar:file:/Users/ake/.grails/ivy-cache/net.sf.ehcache/ehcache-core/jars/ehcache-core-2.4.6.jar!/ehcache-failsafe.xml
+WARN   grails.util.GrailsUtil 08.02.2012 09:08:24 -- [DEPRECATED] Method ApplicationHolder.getApplication() is deprecated and will be removed in a future version of Grails.
+INFO   info.magnolia.module.ModuleManagerImpl 08.02.2012 09:08:24 -- Initializing module webapp
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 09:08:24 -- Loading VirtualURIMapping from /modules/exchange-simple/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 09:08:24 -- Loading VirtualURIMapping from /modules/adminInterface/virtualURIMapping
+INFO   info.magnolia.cms.beans.config.VirtualURIManager 08.02.2012 09:08:24 -- Loading VirtualURIMapping from /modules/blossom/virtualURIMapping
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 09:08:24 -- Loading Template info from /modules/templating/templates
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 09:08:24 -- Loading Template info from /modules/adminInterface/templates
+INFO   info.magnolia.module.templating.TemplateManager 08.02.2012 09:08:24 -- Loading Template info from /modules/blossom/templates
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 08.02.2012 09:08:25 -- Loading dialog controls configuration from /modules/adminInterface/controls
+INFO   info.magnolia.cms.gui.dialog.ControlsManager 08.02.2012 09:08:25 -- Loading dialog controls configuration from /modules/fckEditor/controls
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler users
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler config
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler website
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler userroles
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler usergroups
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler usersAdmin
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler usersSystem
+INFO   info.magnolia.module.admininterface.TreeHandlerManager 08.02.2012 09:08:25 -- Registering tree handler website-jcr
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 08.02.2012 09:08:25 -- Loading i18n configuration - /server/i18n/system
+INFO   info.magnolia.cms.i18n.DefaultMessagesManager 08.02.2012 09:08:25 -- Registering event listener for i18n
+INFO   info.magnolia.cms.beans.config.MIMEMapping 08.02.2012 09:08:25 -- Initializing MIMEMapping from /server/MIMEMapping
+INFO   info.magnolia.cms.beans.config.MIMEMapping 08.02.2012 09:08:25 -- Registering event listener for MIMEMapping
+INFO   info.magnolia.cms.beans.config.ConfigLoader 08.02.2012 09:08:25 -- Configuration loaded (took 11 seconds)
+INFO   info.magnolia.cms.filters.MgnlMainFilter 08.02.2012 09:08:25 -- Initializing filters
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [context]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [contentType]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [multipartRequest]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [unicodeNormalization]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [login]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [logout]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [uriSecurity]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [activation]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [i18n]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [virtualURI]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [servlets]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [Wrapper for ClasspathSpoolServlet servlet]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [Wrapper for log4j servlet]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [Wrapper for AdminTreeServlet servlet]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [Wrapper for DialogServlet servlet]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [Wrapper for PageServlet servlet]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [Wrapper for FCKEditorSimpleUploadServlet servlet]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [cms]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [repositoryMapping]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [contentSecurity]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [aggregator]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [intercept]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [modelExecution]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [blossom]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [backwardCompatibility]
+INFO   info.magnolia.cms.filters.CompositeFilter 08.02.2012 09:08:25 -- Initializing filter [rendering]
+INFO   grails.app.controllers.grails.mgnl.TextController 08.02.2012 09:08:41 -- test log

@@ -12,9 +12,9 @@ class GrailsMgnlGrailsPlugin {
 	// the plugin version
 	def version = "0.1"
 	// the version or versions of Grails the plugin is designed for
-	def grailsVersion = "1.3.7 > *"
+	def grailsVersion = "2.0.0 > *"
 	// the other plugins this plugin depends on
-	def dependsOn = [core: "1.3 > *"]
+	def dependsOn = [core: "2.0.0 > *"]
 
 	// since we need to remove grails dispatcher, which is added by controllers-plugin
 	def loadAfter = ['controllers']
@@ -47,15 +47,15 @@ Brief description of the plugin.
 
 		def contextParam = xml.'context-param'
 
-		contextParam[contextParam.size() - 1] + {
-			'listener' {
-				'listener-class'(info.magnolia.module.blossom.support.ServletContextExposingContextListener.name)
-			}
-		}
+        contextParam[contextParam.size() - 1] + {
+            'listener' {
+                'listener-class'(com.altaworks.magnolia.GrailsMgnlServletContextListener.name)
+            }
+        }
 
 		contextParam[contextParam.size() - 1] + {
 			'listener' {
-				'listener-class'(com.altaworks.magnolia.GrailsMgnlServletContextListener.name)
+				'listener-class'(info.magnolia.module.blossom.support.ServletContextExposingContextListener.name)
 			}
 		}
 
