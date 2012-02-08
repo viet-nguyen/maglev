@@ -39,65 +39,42 @@ eventWebXmlEnd = { String tmpfile ->
     def filterList = xml.'filter'
     def filterMappings = xml.'filter-mapping'
 
-    //remove for now
+    //remove for now. Doesn't seem to work with magnolia...
     filterEntry = filterList.findAll { it.'filter-name'.text() == 'urlMapping' }
     filterEntry.replaceNode {}
 
     def filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'urlMapping'}
     filterMapping.replaceNode {}
 
-    def filterEntry = filterList.findAll { it.'filter-name'.text() == 'grailsWebRequest' }
-    filterEntry.replaceNode {
-        'filter' {
-            'filter-name'('grailsWebRequest')
-            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
-            'init-param' {
-                'param-name'('targetBeanName')
-                'param-value'('grailsWebRequest')
+    String filterString = "";
+
+    filterList.findAll {it.'filter-name'.text() != 'magnoliaFilterChain'}.each {
+        def name = it.'filter-name'.text();
+        def clazz = it.'filter-class'.text();
+        if (it.'filter-class'.text() != 'com.altaworks.spring.SmartDelegatingFilterProxy') {
+            if (it.'filter-class'.text() == 'org.springframework.web.filter.DelegatingFilterProxy') {
+                it.'filter-class' = 'com.altaworks.spring.SmartDelegatingFilterProxy'
+            } else {
+                it.replaceNode {
+                    'filter' {
+                        'filter-name'(name)
+                        'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
+                        'init-param' {
+                            'param-name'('targetBeanName')
+                            'param-value'(name)
+                        }
+                    }
+                }
+                filterString+=name+","+clazz+";"
             }
         }
     }
 
-    filterEntry = filterList.findAll { it.'filter-name'.text() == 'hiddenHttpMethod' }
-    filterEntry.replaceNode {
-        'filter' {
-            'filter-name'('hiddenHttpMethod')
-            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
-            'init-param' {
-                'param-name'('targetBeanName')
-                'param-value'('hiddenHttpMethod')
-            }
-        }
-    }
-
-    filterEntry = filterList.findAll { it.'filter-name'.text() == 'reloadFilter' }
-    filterEntry.replaceNode {
-        'filter' {
-            'filter-name'('reloadFilter')
-            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
-            'init-param' {
-                'param-name'('targetBeanName')
-                'param-value'('reloadFilter')
-            }
-        }
-    }
-
-    filterList = xml.'filter'
-    filterEntry = filterList.findAll { it.'filter-name'.text() == 'charEncodingFilter' }
-    filterEntry.each { tag ->
-        tag.'filter-class' = 'com.altaworks.spring.SmartDelegatingFilterProxy'
-    }
-
-    //We will remove sitemesh for now. Maybe we can get it back again
-    filterEntry = filterList.findAll { it.'filter-name'.text() == 'sitemesh' }
-    filterEntry.replaceNode {
-        'filter' {
-            'filter-name'('sitemesh')
-            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
-            'init-param' {
-                'param-name'('targetBeanName')
-                'param-value'('sitemesh')
-            }
+    def contextParam = xml.'context-param'
+    contextParam[contextParam.size() - 1] + {
+        'context-param' {
+            'param-name'('smartDelegatingFilters')
+            'param-value'(filterString)
         }
     }
 

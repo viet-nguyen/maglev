@@ -11,6 +11,7 @@ grails.project.dependency.resolution = {
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
+        inherits true
         grailsPlugins()
         grailsHome()
         grailsCentral()
@@ -31,7 +32,6 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-        //runtime 'info.magnolia:magnolia-core:4.4.3-GRAILS-SNAPSHOT'
         String magnoliaVersion = "4.4.3"
         runtime('info.magnolia:magnolia-core:' + magnoliaVersion) {
             excludes 'slf4j-log4j12'

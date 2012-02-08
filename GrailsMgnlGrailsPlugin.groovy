@@ -6,6 +6,7 @@ import info.magnolia.context.MgnlContext
 import info.magnolia.module.blossom.BlossomModule
 import info.magnolia.module.blossom.annotation.Paragraph
 import info.magnolia.module.blossom.annotation.Template
+import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
 class GrailsMgnlGrailsPlugin {
     // the plugin version
@@ -62,19 +63,18 @@ Runs Magnolia CMS as a plugin in Grails
 
     }
 
-    def doWithSpring = { applicationContext ->
-        grailsWebRequest(org.codehaus.groovy.grails.web.servlet.mvc.GrailsWebRequestFilter) { bean ->
-            bean.'lazyInit' = true
-        }
-        reloadFilter(org.codehaus.groovy.grails.web.servlet.filter.GrailsReloadServletFilter) { bean ->
-            bean.'lazyInit' = true
-        }
-        hiddenHttpMethod(org.codehaus.groovy.grails.web.filters.HiddenHttpMethodFilter) { bean ->
-            bean.'lazyInit' = true
-        }
-
-        sitemesh(com.opensymphony.sitemesh.webapp.SiteMeshFilter) {bean ->
-            bean.'lazyInit' = true
+    def doWithSpring = {
+        String parameter = ServletContextHolder.getServletContext().getInitParameter("smartDelegatingFilters")
+        if (parameter != null) {
+            String[] split = parameter.split(";")
+            split.each {
+                if (it != null) {
+                    String[] filterDef = it.split(",")
+                    "${filterDef[0]}"(this.getClass().getClassLoader().loadClass(filterDef[1])) {bean ->
+                        bean.'lazyInit' = true
+                    }
+                }
+            }
         }
 
     }
