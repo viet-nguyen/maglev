@@ -10,13 +10,17 @@ import org.codehaus.groovy.grails.web.context.GrailsContextLoader;
  */
 public class GrailsModule extends BlossomModuleSupport implements ModuleLifecycle {
 
-    public void start(ModuleLifecycleContext moduleLifecycleContext) {
-		initRootWebApplicationContext(new GrailsContextLoader());
-		initDispatcherServlet(new GrailsBlossomDispatcherServlet(), "blossom", "classpath:/blossom-servlet.xml");
-    }
+	public static GrailsBlossomDispatcherServlet grailsBlossomDispatcherServlet;
 
-    public void stop(ModuleLifecycleContext moduleLifecycleContext) {
-        destroyDispatcherServlets();
-        closeRootWebApplicationContext();
-    }
+	public void start(ModuleLifecycleContext moduleLifecycleContext) {
+		initRootWebApplicationContext(new GrailsContextLoader());
+		grailsBlossomDispatcherServlet = new GrailsBlossomDispatcherServlet();
+		initDispatcherServlet(grailsBlossomDispatcherServlet, "blossom", "classpath:/blossom-servlet.xml");
+	}
+
+	public void stop(ModuleLifecycleContext moduleLifecycleContext) {
+		destroyDispatcherServlets();
+		closeRootWebApplicationContext();
+	}
+
 }

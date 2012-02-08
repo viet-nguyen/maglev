@@ -7,6 +7,11 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsControllerClass
 import org.codehaus.groovy.grails.commons.GrailsClass
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import com.altaworks.magnolia.ContentMap
+import info.magnolia.module.blossom.BlossomConfiguration
+import info.magnolia.module.blossom.BlossomModule
+import org.springframework.web.context.WebApplicationContext
+import com.altaworks.magnolia.GrailsBlossomDispatcherServlet
+import com.altaworks.magnolia.GrailsModule
 
 class GrailsMgnlGrailsPlugin {
 	// the plugin version
@@ -148,9 +153,15 @@ Brief description of the plugin.
 		// TODO Implement code that is executed when any artefact that this plugin is
 		// watching is modified and reloaded. The event contains: event.source,
 		// event.application, event.manager, event.ctx, and event.plugin.-
-		def grailsApplication = event.ctx.getBean('grailsApplication')
 
-		addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
+
+        BlossomModule.getParagraphRegistry().getParagraphs().clear()
+        BlossomModule.getParagraphRegistry().afterPropertiesSet()
+        //TOOD: don't use a static. Need to figure out where it's hiding
+        GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
+
+        def grailsApplication = event.ctx.getBean('grailsApplication')
+        addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
 	}
 
 	def onConfigChange = { event ->

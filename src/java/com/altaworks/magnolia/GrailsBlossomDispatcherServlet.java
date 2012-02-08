@@ -184,7 +184,7 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	}
 
-	private void registerControllers() {
+	public void registerControllers() {
 		GrailsApplication grailsApplication = ApplicationHolder.getApplication();
 		GrailsClass[] allControllerClasses = grailsApplication.getArtefacts("Controller");
 		for (GrailsClass controllerClass : allControllerClasses) {

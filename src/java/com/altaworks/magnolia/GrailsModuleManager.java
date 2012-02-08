@@ -5,11 +5,7 @@ import info.magnolia.module.model.reader.ModuleDefinitionReader;
 import info.magnolia.objectfactory.Components;
 
 /**
- * Created by IntelliJ IDEA.
- * User: kimmo
- * Date: 2011-07-09
- * Time: 21:28
- * To change this template use File | Settings | File Templates.
+ *@author Kimmo Björnsson
  */
 public class GrailsModuleManager extends info.magnolia.module.ModuleManagerImpl {
 
