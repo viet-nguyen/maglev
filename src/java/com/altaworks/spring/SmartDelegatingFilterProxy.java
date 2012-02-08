@@ -13,6 +13,11 @@ public class SmartDelegatingFilterProxy extends DelegatingFilterProxy {
 	private boolean applicationContextAvailable = false;
 	private final Object monitor = new Object();
 
+	public SmartDelegatingFilterProxy() {
+		setTargetFilterLifecycle(true);
+
+	}
+
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 

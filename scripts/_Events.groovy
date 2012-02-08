@@ -21,12 +21,11 @@ eventWebXmlEnd = { String tmpfile ->
     grailsDispatcher.replaceNode {}
 
     def gsp = servlet.findAll {node -> node.'servlet-name'.text() == 'gsp'}
-    grailsDispatcher.replaceNode {}
+    gsp.replaceNode {}
 
     def servletMappings = xml.'servlet-mapping'
     def grailsServletMapping = servletMappings.findAll {it.'servlet-name'.text() == 'grails'}
     grailsServletMapping.replaceNode {}
-
 
     def gspMapping = servletMappings.findAll {it.'servlet-name'.text() == 'gsp'}
     gspMapping.replaceNode {}
@@ -35,38 +34,53 @@ eventWebXmlEnd = { String tmpfile ->
     def grailsListener = listeners.findAll {it.'listener-class'.text() == 'org.codehaus.groovy.grails.web.context.GrailsContextLoaderListener'}
     grailsListener.replaceNode {}
 
+    //Now for the filters
 
+    def filterList = xml.'filter'
     def filterMappings = xml.'filter-mapping'
+
+    //remove for now
+    filterEntry = filterList.findAll { it.'filter-name'.text() == 'urlMapping' }
+    filterEntry.replaceNode {}
+
     def filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'urlMapping'}
     filterMapping.replaceNode {}
 
-    def filterList = xml.'filter'
     def filterEntry = filterList.findAll { it.'filter-name'.text() == 'grailsWebRequest' }
-    filterEntry.replaceNode {}
+    filterEntry.replaceNode {
+        'filter' {
+            'filter-name'('grailsWebRequest')
+            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
+            'init-param' {
+                'param-name'('targetBeanName')
+                'param-value'('grailsWebRequest')
+            }
+        }
+    }
 
-    filterMappings = xml.'filter-mapping'
-    filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'grailsWebRequest'}
-    filterMapping.replaceNode {}
-
-    filterList = xml.'filter'
     filterEntry = filterList.findAll { it.'filter-name'.text() == 'hiddenHttpMethod' }
-    filterEntry.replaceNode {}
+    filterEntry.replaceNode {
+        'filter' {
+            'filter-name'('hiddenHttpMethod')
+            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
+            'init-param' {
+                'param-name'('targetBeanName')
+                'param-value'('hiddenHttpMethod')
+            }
+        }
+    }
 
-    filterMappings = xml.'filter-mapping'
-    filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'hiddenHttpMethod'}
-    filterMapping.replaceNode {}
-
-    filterList = xml.'filter'
     filterEntry = filterList.findAll { it.'filter-name'.text() == 'reloadFilter' }
-    filterEntry.replaceNode {}
-
-    filterMappings = xml.'filter-mapping'
-    filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'reloadFilter'}
-    filterMapping.replaceNode {}
-
-    filterList = xml.'filter'
-    filterEntry = filterList.findAll { it.'filter-name'.text() == 'urlMapping' }
-    filterEntry.replaceNode {}
+    filterEntry.replaceNode {
+        'filter' {
+            'filter-name'('reloadFilter')
+            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
+            'init-param' {
+                'param-name'('targetBeanName')
+                'param-value'('reloadFilter')
+            }
+        }
+    }
 
     filterList = xml.'filter'
     filterEntry = filterList.findAll { it.'filter-name'.text() == 'charEncodingFilter' }
@@ -74,78 +88,18 @@ eventWebXmlEnd = { String tmpfile ->
         tag.'filter-class' = 'com.altaworks.spring.SmartDelegatingFilterProxy'
     }
 
-    filterList = xml.'filter'
+    //We will remove sitemesh for now. Maybe we can get it back again
     filterEntry = filterList.findAll { it.'filter-name'.text() == 'sitemesh' }
-    filterEntry.replaceNode {}
-
-
-    filterMappings = xml.'filter-mapping'
-    filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'sitemesh'}
-    filterMapping.replaceNode {}
-
-    filterMappings[filterMappings.size() - 1] + {
+    filterEntry.replaceNode {
         'filter' {
-            'filter-name'('delegatingFilterProxy2')
+            'filter-name'('sitemesh')
             'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
             'init-param' {
                 'param-name'('targetBeanName')
-                'param-value'('hiddenHttpMethodFilterBean')
+                'param-value'('sitemesh')
             }
         }
     }
-
-    filterMappings[filterMappings.size() - 1] + {
-        'filter-mapping' {
-            'filter-name'('delegatingFilterProxy2')
-            'url-pattern'('/*')
-            'dispatcher'('REQUEST')
-            'dispatcher'('FORWARD')
-
-        }
-    }
-
-    filterMappings[filterMappings.size() - 1] + {
-        'filter' {
-            'filter-name'('delegatingFilterProxy3')
-            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
-            'init-param' {
-                'param-name'('targetBeanName')
-                'param-value'('reloadFilterFilterBean')
-            }
-        }
-    }
-
-    filterMappings[filterMappings.size() - 1] + {
-        'filter-mapping' {
-            'filter-name'('delegatingFilterProxy3')
-            'url-pattern'('/*')
-            'dispatcher'('REQUEST')
-            'dispatcher'('FORWARD')
-
-        }
-    }
-
-    filterMappings[filterMappings.size() - 1] + {
-        'filter' {
-            'filter-name'('delegatingFilterProxy')
-            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
-            'init-param' {
-                'param-name'('targetBeanName')
-                'param-value'('grailsWebRequestFilterBean')
-            }
-        }
-    }
-
-    filterMappings[filterMappings.size() - 1] + {
-        'filter-mapping' {
-            'filter-name'('delegatingFilterProxy')
-            'url-pattern'('/*')
-            'dispatcher'('REQUEST')
-            'dispatcher'('FORWARD')
-
-        }
-    }
-
 
     filterMappings[filterMappings.size() - 1] + {
         'filter-mapping' {
