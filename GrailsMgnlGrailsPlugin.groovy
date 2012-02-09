@@ -23,7 +23,12 @@ class GrailsMgnlGrailsPlugin {
     def pluginExcludes = [
             "grails-app/views/**",
             "grails-app/controllers/**",
+            "grails-app/domain/**",
+            "grails-app/services/**",
             "web-app/css/**",
+            "web-app/images/**",
+            "web-app/logs/**",
+            "web-app//**",
             "web-app/repositories/**",
             "web-app/js/**"
     ]
