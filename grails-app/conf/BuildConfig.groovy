@@ -7,7 +7,6 @@ grails.project.dependency.resolution = {
     inherits("global") {
         // uncomment to disable ehcache
 //        excludes 'ehcache'
-        excludes "xmlParserAPIs", "xml-apis", "commons-logging"
     }
     log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     repositories {
@@ -34,21 +33,47 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
         String magnoliaVersion = "4.4.5"
         runtime('info.magnolia:magnolia-core:' + magnoliaVersion) {
-            excludes 'slf4j-log4j12'
+            excludes([ name: 'commons-logging' ], 'slf4j-log4j12')
         }
-        runtime('info.magnolia:magnolia-module-templating:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-module-admininterface:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-taglib-utility:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-taglib-cms:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-module-exchange-simple:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-gui:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-jaas:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-module-fckeditor:' + magnoliaVersion)
-        runtime('info.magnolia:magnolia-module-mail:' + magnoliaVersion)
-        runtime('org.apache.jackrabbit:jackrabbit-core:1.6.4')
-        runtime('javax.jcr:jcr:2.0')
-        runtime('net.sourceforge.openutils:openutils-log4j:2.0.5')
-        runtime('info.magnolia:magnolia-module-blossom:1.2.2')
+        runtime('info.magnolia:magnolia-module-templating:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-module-admininterface:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-taglib-utility:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-taglib-cms:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-module-exchange-simple:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-gui:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-jaas:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-module-fckeditor:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-module-mail:' + magnoliaVersion){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('org.apache.jackrabbit:jackrabbit-core:1.6.4'){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('javax.jcr:jcr:2.0'){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('net.sourceforge.openutils:openutils-log4j:2.0.5'){
+            excludes([ name: 'commons-logging' ])
+        }
+        runtime('info.magnolia:magnolia-module-blossom:1.2.2'){
+            excludes([ name: 'commons-logging' ])
+        }
     }
 
 }
