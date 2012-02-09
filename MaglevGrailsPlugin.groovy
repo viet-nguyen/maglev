@@ -9,9 +9,9 @@ import info.magnolia.module.blossom.annotation.Template
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 import com.altaworks.magnolia.GrailsModule
 
-class GrailsMgnlGrailsPlugin {
+class MaglevGrailsPlugin {
     // the plugin version
-    def version = "0.1"
+    def version = "0.2"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0.0 > *"
     // the other plugins this plugin depends on
@@ -37,7 +37,7 @@ class GrailsMgnlGrailsPlugin {
 
     def author = "Kimmo Björnsson"
     def authorEmail = "kimmo@kokaihop.se"
-    def title = "Grails Magnolia plugin"
+    def title = "Maglev - Magnolia Grails Plugin"
     def description = '''\\
 Runs Magnolia CMS as a plugin in Grails
 '''
