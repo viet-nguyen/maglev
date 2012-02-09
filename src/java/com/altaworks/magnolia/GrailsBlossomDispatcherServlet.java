@@ -9,12 +9,8 @@ import info.magnolia.module.blossom.context.MagnoliaLocaleResolver;
 import info.magnolia.module.blossom.dialog.BlossomDialogRegistry;
 import info.magnolia.module.blossom.dialog.DialogExporter;
 import info.magnolia.module.blossom.dispatcher.BlossomDispatcher;
-import info.magnolia.module.blossom.paragraph.BlossomParagraphRegistry;
-import info.magnolia.module.blossom.paragraph.ParagraphDescriptionBuilder;
 import info.magnolia.module.blossom.support.ForwardRequestWrapper;
 import info.magnolia.module.blossom.support.IncludeRequestWrapper;
-import info.magnolia.module.blossom.template.BlossomTemplateRegistry;
-import info.magnolia.module.blossom.template.TemplateDescriptionBuilder;
 import info.magnolia.module.blossom.urimapping.AnnotatedVirtualURIMappingExporter;
 import info.magnolia.module.blossom.urimapping.VirtualURIMappingExporter;
 import org.codehaus.groovy.grails.commons.ApplicationHolder;
@@ -208,11 +204,7 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 	private void registerParagraphsToMagnolia(GrailsClass controllerClass, String handlerPath, Object handler) {
 		if (controllerClass.getClazz().isAnnotationPresent(Paragraph.class)) {
 			try {
-				BlossomParagraphRegistry paragraphRegistry = BlossomModule.getParagraphRegistry();
-				ParagraphDescriptionBuilder descriptionBuilder = new ParagraphDescriptionBuilder();
-				String name = descriptionBuilder.buildDescription(this, handler, handlerPath).getName();
-				if (paragraphRegistry.getParagraph(name) == null)
-					paragraphRegistry.registerParagraph(this, handler, handlerPath);
+				BlossomModule.getParagraphRegistry().registerParagraph(this, handler, handlerPath);
 			} catch (RepositoryException e) {
 				logger.error("Unable to register paragraph [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
 			}
@@ -223,11 +215,7 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
 			System.out.println("Template Registry ");
 			try {
-				BlossomTemplateRegistry templateRegistry = BlossomModule.getTemplateRegistry();
-				TemplateDescriptionBuilder descriptionBuilder = new TemplateDescriptionBuilder();
-				String name = descriptionBuilder.buildDescription(this, handler, handlerPath).getName();
-				if (templateRegistry.getTemplate(name) == null)
-					templateRegistry.registerTemplate(this, handler, handlerPath);
+				BlossomModule.getTemplateRegistry().registerTemplate(this, handler, handlerPath);
 			} catch (RepositoryException e) {
 				logger.error("Unable to register template [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
 			}

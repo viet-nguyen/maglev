@@ -1,5 +1,5 @@
 import com.altaworks.magnolia.ContentMap
-import com.altaworks.magnolia.GrailsModule
+import com.altaworks.magnolia.GrailsTemplateRegistry
 import info.magnolia.cms.core.AggregationState
 import info.magnolia.cms.core.Content
 import info.magnolia.context.MgnlContext
@@ -7,6 +7,7 @@ import info.magnolia.module.blossom.BlossomModule
 import info.magnolia.module.blossom.annotation.Paragraph
 import info.magnolia.module.blossom.annotation.Template
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
+import com.altaworks.magnolia.GrailsModule
 
 class GrailsMgnlGrailsPlugin {
     // the plugin version
@@ -70,6 +71,8 @@ Runs Magnolia CMS as a plugin in Grails
     }
 
     def doWithSpring = {
+        blossomConfiguration(info.magnolia.module.blossom.BlossomConfiguration);
+
         String parameter = ServletContextHolder.getServletContext().getInitParameter("smartDelegatingFilters")
         if (parameter != null) {
             String[] split = parameter.split(";")
@@ -137,9 +140,16 @@ Runs Magnolia CMS as a plugin in Grails
         }
     }
 
+    def doWithApplicationContext = { applicationContext ->
+        def templateRegistry = new GrailsTemplateRegistry();
+        templateRegistry.afterPropertiesSet();
+        def config = applicationContext.getBean("blossomConfiguration")
+        config.setTemplateRegistry(templateRegistry);
+    }
+
     def onChange = { event ->
-        //BlossomModule.getParagraphRegistry().getParagraphs().clear()
-        //BlossomModule.getParagraphRegistry().afterPropertiesSet()
+        BlossomModule.getParagraphRegistry().getParagraphs().clear()
+        BlossomModule.getParagraphRegistry().afterPropertiesSet()
         GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
 
         def grailsApplication = event.ctx.getBean('grailsApplication')
