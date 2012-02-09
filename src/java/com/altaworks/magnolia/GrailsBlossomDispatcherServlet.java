@@ -6,10 +6,15 @@ import info.magnolia.module.blossom.annotation.DialogFactory;
 import info.magnolia.module.blossom.annotation.Paragraph;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.context.MagnoliaLocaleResolver;
+import info.magnolia.module.blossom.dialog.BlossomDialogRegistry;
 import info.magnolia.module.blossom.dialog.DialogExporter;
 import info.magnolia.module.blossom.dispatcher.BlossomDispatcher;
+import info.magnolia.module.blossom.paragraph.BlossomParagraphRegistry;
+import info.magnolia.module.blossom.paragraph.ParagraphDescriptionBuilder;
 import info.magnolia.module.blossom.support.ForwardRequestWrapper;
 import info.magnolia.module.blossom.support.IncludeRequestWrapper;
+import info.magnolia.module.blossom.template.BlossomTemplateRegistry;
+import info.magnolia.module.blossom.template.TemplateDescriptionBuilder;
 import info.magnolia.module.blossom.urimapping.AnnotatedVirtualURIMappingExporter;
 import info.magnolia.module.blossom.urimapping.VirtualURIMappingExporter;
 import org.codehaus.groovy.grails.commons.ApplicationHolder;
@@ -170,26 +175,12 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		return super.getDefaultStrategy(context, strategyInterface);
 	}
 
-	@Override
-	protected void postProcessWebApplicationContext(final ConfigurableWebApplicationContext wac) {
-
-/*
-		wac.addBeanFactoryPostProcessor(new BeanFactoryPostProcessor() {
-			public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-				registerControllers();
-
-			}
-		});
-*/
-
-	}
-
 	public void registerControllers() {
 		GrailsApplication grailsApplication = ApplicationHolder.getApplication();
 		GrailsClass[] allControllerClasses = grailsApplication.getArtefacts("Controller");
 		for (GrailsClass controllerClass : allControllerClasses) {
 			DefaultGrailsControllerClass controller = (DefaultGrailsControllerClass) controllerClass;
-			String handlerPath = controller.getViewByName("");     // We are assuming that the action to be used as handler will be the default action
+			String handlerPath = controller.getViewByName("");	 // We are assuming that the action to be used as handler will be the default action
 			System.out.println("The handlerPath is :   " + handlerPath);
 			Object handler = grailsApplication.getMainContext().getBean(controllerClass.getFullName());
 			//register Template
@@ -206,7 +197,8 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		if (controllerClass.getClazz().isAnnotationPresent(DialogFactory.class)) {
 			System.out.println("Found Annotation DialogFactory");
 			try {
-				BlossomModule.getDialogRegistry().registerDialogFactory(bean);
+				BlossomDialogRegistry dialogRegistry = BlossomModule.getDialogRegistry();
+				dialogRegistry.registerDialogFactory(bean);
 			} catch (RepositoryException e) {
 				logger.error("Unable to register dialog factory [" + bean.getClass().getName() + "] with bean name [" + beanName + "]", e);
 			}
@@ -216,7 +208,11 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 	private void registerParagraphsToMagnolia(GrailsClass controllerClass, String handlerPath, Object handler) {
 		if (controllerClass.getClazz().isAnnotationPresent(Paragraph.class)) {
 			try {
-				BlossomModule.getParagraphRegistry().registerParagraph(this, handler, handlerPath);
+				BlossomParagraphRegistry paragraphRegistry = BlossomModule.getParagraphRegistry();
+				ParagraphDescriptionBuilder descriptionBuilder = new ParagraphDescriptionBuilder();
+				String name = descriptionBuilder.buildDescription(this, handler, handlerPath).getName();
+				if (paragraphRegistry.getParagraph(name) == null)
+					paragraphRegistry.registerParagraph(this, handler, handlerPath);
 			} catch (RepositoryException e) {
 				logger.error("Unable to register paragraph [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
 			}
@@ -227,8 +223,11 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
 			System.out.println("Template Registry ");
 			try {
-				System.out.println(BlossomModule.getTemplateRegistry());
-				BlossomModule.getTemplateRegistry().registerTemplate(this, handler, handlerPath);
+				BlossomTemplateRegistry templateRegistry = BlossomModule.getTemplateRegistry();
+				TemplateDescriptionBuilder descriptionBuilder = new TemplateDescriptionBuilder();
+				String name = descriptionBuilder.buildDescription(this, handler, handlerPath).getName();
+				if (templateRegistry.getTemplate(name) == null)
+					templateRegistry.registerTemplate(this, handler, handlerPath);
 			} catch (RepositoryException e) {
 				logger.error("Unable to register template [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
 			}

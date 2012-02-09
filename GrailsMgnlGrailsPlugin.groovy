@@ -127,14 +127,19 @@ Runs Magnolia CMS as a plugin in Grails
                 controllerClass.metaClass.getContext = {
                     return MgnlContext.getInstance();
                 }
+                controllerClass.metaClass.getContentMap = {
+                    AggregationState aggregationState = MgnlContext.getAggregationState();
+                    Content currentContent = aggregationState.getCurrentContent();
+                    return new ContentMap(currentContent.getJCRNode());
+                }
             }
 
         }
     }
 
     def onChange = { event ->
-        BlossomModule.getParagraphRegistry().getParagraphs().clear()
-        BlossomModule.getParagraphRegistry().afterPropertiesSet()
+        //BlossomModule.getParagraphRegistry().getParagraphs().clear()
+        //BlossomModule.getParagraphRegistry().afterPropertiesSet()
         GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
 
         def grailsApplication = event.ctx.getBean('grailsApplication')
