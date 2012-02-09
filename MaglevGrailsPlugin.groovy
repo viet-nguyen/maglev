@@ -11,7 +11,7 @@ import com.altaworks.magnolia.GrailsModule
 
 class MaglevGrailsPlugin {
     // the plugin version
-    def version = "0.2"
+    def version = "0.2-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0.0 > *"
     // the other plugins this plugin depends on
@@ -30,7 +30,6 @@ class MaglevGrailsPlugin {
             "web-app/css/**",
             "web-app/images/**",
             "web-app/logs/**",
-            "web-app//**",
             "web-app/repositories/**",
             "web-app/js/**"
     ]

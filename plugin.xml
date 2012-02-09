@@ -1,0 +1,58 @@
+<plugin name='maglev' version='0.2-SNAPSHOT' grailsVersion='2.0.0 &gt; *'>
+  <author>Kimmo Björnsson</author>
+  <authorEmail>kimmo@kokaihop.se</authorEmail>
+  <title>Maglev - Magnolia Grails Plugin</title>
+  <description>\
+Runs Magnolia CMS as a plugin in Grails
+</description>
+  <documentation>http://grails.org/plugin/grails-mgnl</documentation>
+  <type>MaglevGrailsPlugin</type>
+  <resources>
+    <resource>BootStrap</resource>
+    <resource>spring.resources</resource>
+    <resource>grails.mgnl.DemoTemplateController</resource>
+    <resource>grails.mgnl.FrontPageDialogController</resource>
+    <resource>grails.mgnl.PageLinkController</resource>
+    <resource>grails.mgnl.PersonsController</resource>
+    <resource>grails.mgnl.TextController</resource>
+    <resource>grails.mgnl.Person</resource>
+    <resource>grails.mgnl.Pet</resource>
+    <resource>grails.mgnl.PersonService</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://plugins.grails.org' />
+    <repository name='http://repo.grails.org/grails/plugins' url='http://repo.grails.org/grails/plugins/' />
+    <repository name='http://repo.grails.org/grails/core' url='http://repo.grails.org/grails/core/' />
+    <repository name='grailsCore' url='http://svn.codehaus.org/grails/trunk/grails-plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+    <repository name='http://nexus.magnolia-cms.com/content/groups/public/' url='http://nexus.magnolia-cms.com/content/groups/public/' />
+    <repository name='http://archiva.kokaihop.se/archiva/repository/internal' url='http://archiva.kokaihop.se/archiva/repository/internal/' />
+    <repository name='http://snapshots.repository.codehaus.org' url='http://snapshots.repository.codehaus.org/' />
+    <repository name='http://repository.codehaus.org' url='http://repository.codehaus.org/' />
+    <repository name='http://download.java.net/maven/2/' url='http://download.java.net/maven/2/' />
+    <repository name='http://repository.jboss.com/maven2/' url='http://repository.jboss.com/maven2/' />
+  </repositories>
+  <dependencies>
+    <runtime>
+      <dependency group='org.apache.jackrabbit' name='jackrabbit-core' version='1.6.4' />
+      <dependency group='info.magnolia' name='magnolia-jaas' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-taglib-cms' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-core' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-module-admininterface' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-module-blossom' version='1.2.2' />
+      <dependency group='net.sourceforge.openutils' name='openutils-log4j' version='2.0.5' />
+      <dependency group='info.magnolia' name='magnolia-module-fckeditor' version='4.4.5' />
+      <dependency group='javax.jcr' name='jcr' version='2.0' />
+      <dependency group='info.magnolia' name='magnolia-gui' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-module-exchange-simple' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-module-templating' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-module-mail' version='4.4.5' />
+      <dependency group='info.magnolia' name='magnolia-taglib-utility' version='4.4.5' />
+    </runtime>
+  </dependencies>
+  <plugins />
+  <runtimePluginRequirements>
+    <plugin name='core' version='2.0.0 &gt; *' />
+  </runtimePluginRequirements>
+  <behavior />
+</plugin>
