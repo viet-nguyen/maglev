@@ -32,7 +32,7 @@ grails.project.dependency.resolution = {
     }
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
-        String magnoliaVersion = "4.4.3"
+        String magnoliaVersion = "4.4.5"
         runtime('info.magnolia:magnolia-core:' + magnoliaVersion) {
             excludes 'slf4j-log4j12'
         }
