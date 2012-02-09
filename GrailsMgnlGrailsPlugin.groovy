@@ -25,6 +25,7 @@ class GrailsMgnlGrailsPlugin {
             "grails-app/controllers/**",
             "grails-app/domain/**",
             "grails-app/services/**",
+            "grails-app/i18n/**",
             "web-app/css/**",
             "web-app/images/**",
             "web-app/logs/**",
