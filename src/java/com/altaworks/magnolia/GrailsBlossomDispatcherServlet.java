@@ -52,7 +52,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	@Override
 	protected WebApplicationContext createWebApplicationContext(WebApplicationContext parent) throws BeansException {
-		System.out.println("I am here now");
 
 		Class<?> contextClass = getContextClass();
 		if (this.logger.isDebugEnabled()) {
@@ -124,11 +123,9 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	private void bindHibernateSession() {
 		SessionFactory sessionFactory = (SessionFactory) ApplicationHolder.getApplication().getMainContext().getBean("sessionFactory");
-		System.out.println("sessionFactory : " + sessionFactory.getClass());
 		Session session = SessionFactoryUtils.getSession(sessionFactory, true);
 		session.setFlushMode(FlushMode.AUTO);
 		TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(session));
-		System.out.println("Hibernate Session is bounded to forward thread");
 	}
 
 	public void include(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -169,7 +166,7 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		for (GrailsClass controllerClass : allControllerClasses) {
 			DefaultGrailsControllerClass controller = (DefaultGrailsControllerClass) controllerClass;
 			String handlerPath = controller.getViewByName("");	 // We are assuming that the action to be used as handler will be the default action
-			System.out.println("The handlerPath is :   " + handlerPath);
+			log("Registering controller on handlerpath" + handlerPath);
 			Object handler = grailsApplication.getMainContext().getBean(controllerClass.getFullName());
 			//register Template
 			registerTemplatesToMagnolia(controllerClass, handlerPath, handler);
@@ -183,7 +180,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	private void registerDialog(GrailsClass controllerClass, Object bean, String beanName) {
 		if (controllerClass.getClazz().isAnnotationPresent(DialogFactory.class)) {
-			System.out.println("Found Annotation DialogFactory");
 			try {
 				BlossomDialogRegistry dialogRegistry = BlossomModule.getDialogRegistry();
 				dialogRegistry.registerDialogFactory(bean);
@@ -205,7 +201,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	private void registerTemplatesToMagnolia(GrailsClass controllerClass, String handlerPath, Object handler) {
 		if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
-			System.out.println("Template Registry ");
 			try {
 				BlossomModule.getTemplateRegistry().registerTemplate(this, handler, handlerPath);
 			} catch (RepositoryException e) {

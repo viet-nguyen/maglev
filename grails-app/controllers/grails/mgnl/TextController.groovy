@@ -15,7 +15,7 @@ public class TextController extends BaseParagraph {
     def index = {
         def x = 10;
         x += 20
-        log.info("test log")
+        //log.info("test log")
         render(view: "text")
     }
 

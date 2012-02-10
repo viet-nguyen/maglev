@@ -14,9 +14,9 @@ public class PersonsController extends BaseParagraph {
     def index = {
         Map model = [:]
 
-        println "content testString: " + content?.getNodeData('testString').getString()
-        println "user: " + user
-        println "aggregationState: " + aggregationState
+        //println "content testString: " + content?.getNodeData('testString').getString()
+        //println "user: " + user
+        //println "aggregationState: " + aggregationState
 
         def persons = Person.list()
         model.put("persons", persons);

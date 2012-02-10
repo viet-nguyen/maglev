@@ -4,9 +4,7 @@ includeTargets << grailsScript("_GrailsWar")
 
 eventCompileStart = { kind ->
     File configFolder = new File("${basedir}/web-app/WEB-INF/config")
-    println "In Event Compile start"
     if (!configFolder.exists()) {
-        println "Copying config to web-inf"
         ant.copydir(src: "${basedir}/web-app/config", dest: "${basedir}/web-app/WEB-INF/config")
     }
 

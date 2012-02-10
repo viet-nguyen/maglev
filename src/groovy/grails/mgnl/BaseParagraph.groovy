@@ -10,8 +10,8 @@ package grails.mgnl
 abstract class BaseParagraph {
 
     def afterInterceptor = {model ->
-        println "For paragraph $model"
+        //println "For paragraph $model"
         model.contentMap = contentMap.toHashMap()
-        println "Model ::: $model"
+        //println "Model ::: $model"
     }
 }
