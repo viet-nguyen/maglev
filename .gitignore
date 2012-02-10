@@ -14,3 +14,5 @@ lib
 derby.log
 web-app/logs
 web-app/WEB-INF/web.xml
+plugin.xml
+grails-maglev-*.zip

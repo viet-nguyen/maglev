@@ -84,7 +84,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		wac.setServletConfig(getServletConfig());
 		wac.setNamespace(getNamespace());
 		wac.setConfigLocation(getContextConfigLocation());
-//		wac.addApplicationListener(new SourceFilteringListener(wac, new ContextRefreshListener()));
 
 		postProcessWebApplicationContext(wac);
 		wac.refresh();
@@ -95,20 +94,16 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	public void forward(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//		bindHibernateSession();
 		String contextPath = request.getContextPath();
 
 		request = new ForwardRequestWrapper(request, contextPath + path, contextPath, path, null);
-//		System.out.println("In forward -- before for " + path);
 
 		MgnlContext.push(request, response);
 		try {
 			super.service(request, response);
 		} finally {
 			MgnlContext.pop();
-//			unbindHibernateSession();
 		}
-//		System.out.println("In forward -- after for " + path);
 	}
 
 	private void unbindHibernateSession() {
@@ -139,7 +134,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 	public void include(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String contextPath = request.getContextPath();
-//		System.out.println("In include -- before for " + path);
 
 		request = new IncludeRequestWrapper(request, contextPath + path, contextPath, path, null, request.getQueryString());
 
@@ -152,7 +146,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 			final IncludeResponseWrapper responseWrapper = new IncludeResponseWrapper(response);
 			WrappedResponseHolder.setWrappedResponse(responseWrapper);
 			super.service(request, responseWrapper);
-//            super.service(request, response);
 
 			GroovyPageOutputStack.currentWriter().write(String.valueOf(responseWrapper.getContent()));
 			WrappedResponseHolder.setWrappedResponse(wrapped);
@@ -160,7 +153,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		} finally {
 			MgnlContext.pop();
 		}
-//		System.out.println("In include -- after for " + path);
 	}
 
 
