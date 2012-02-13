@@ -8,22 +8,36 @@ eventCompileStart = { kind ->
         ant.copydir(src: "${basedir}/web-app/config", dest: "${basedir}/web-app/WEB-INF/config")
     }
 
+    File bootstrapfolder = new File("${basedir}/web-app/WEB-INF/bootstrap")
+    if (!bootstrapfolder.exists()) {
+        ant.copydir(src: "${basedir}/web-app/bootstrap", dest: "${basedir}/web-app/WEB-INF/bootstrap")
+    }
+
 }
 
 eventWebXmlEnd = { String tmpfile ->
 
     def xml = new XmlSlurper().parse(webXmlFile)
-    // remove GrailsDispatcherServlet, seems there is only support for one to exists in each servletContext
-    def servlet = xml.'servlet'
-    def grailsDispatcher = servlet.findAll {node -> node.'servlet-name'.text() == 'grails'}
-    grailsDispatcher.replaceNode {}
 
-    def gsp = servlet.findAll {node -> node.'servlet-name'.text() == 'gsp'}
+    def servlets = xml.'servlet'
+    def grailsServlet = servlets.findAll {it.'servlet-name'.text() == 'grails'}
+    grailsServlet.replaceNode {
+        'servlet'{
+            'servlet-name'('grails')
+            'servlet-class'('info.magnolia.module.blossom.web.InstallationAwareServletProxy')
+            'init-param'{
+                'param-name'('servletClass')
+                'param-value'('org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet')
+            }
+        }
+    }
+
+    def gsp = servlets.findAll {node -> node.'servlet-name'.text() == 'gsp'}
     gsp.replaceNode {}
 
     def servletMappings = xml.'servlet-mapping'
     def grailsServletMapping = servletMappings.findAll {it.'servlet-name'.text() == 'grails'}
-    grailsServletMapping.replaceNode {}
+  //  grailsServletMapping.replaceNode {}
 
     def gspMapping = servletMappings.findAll {it.'servlet-name'.text() == 'gsp'}
     gspMapping.replaceNode {}
@@ -32,21 +46,33 @@ eventWebXmlEnd = { String tmpfile ->
     def grailsListener = listeners.findAll {it.'listener-class'.text() == 'org.codehaus.groovy.grails.web.context.GrailsContextLoaderListener'}
     grailsListener.replaceNode {}
 
-    //Now for the filters
-
     def filterList = xml.'filter'
     def filterMappings = xml.'filter-mapping'
 
-    //remove for now. Doesn't seem to work with magnolia...
-    filterEntry = filterList.findAll { it.'filter-name'.text() == 'urlMapping' }
-    filterEntry.replaceNode {}
+    def filterEntry = filterList.findAll { it.'filter-name'.text() == 'urlMapping' }
+    filterEntry.replaceNode {
+        'filter' {
+            'filter-name'('urlMapping')
+            'filter-class'('com.altaworks.spring.SmartDelegatingFilterProxy')
+            'init-param' {
+                'param-name'('targetBeanName')
+                'param-value'('urlMapping')
+            }
+        }
+    }
 
     def filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'urlMapping'}
-    filterMapping.replaceNode {}
+    filterMapping.replaceNode {
+        'filter-mapping'{
+            'filter-name'('urlMapping')
+            'url-pattern'('/*')
+        }
+    }
 
     String filterString = "";
 
-    filterList.findAll {it.'filter-name'.text() != 'magnoliaFilterChain'}.each {
+    filterList = xml.'filter'
+    filterList.findAll {it.'filter-name'.text() != 'magnoliaFilterChain' && it.'filter-name'.text() != 'urlMapping'}.each {
         def name = it.'filter-name'.text();
         def clazz = it.'filter-class'.text();
         if (it.'filter-class'.text() != 'com.altaworks.spring.SmartDelegatingFilterProxy') {
@@ -92,8 +118,6 @@ eventWebXmlEnd = { String tmpfile ->
         mkp.declareNamespace("tag0": "http://java.sun.com/xml/ns/j2ee")
         mkp.yield(xml)
     }
-
-
 }
 
 

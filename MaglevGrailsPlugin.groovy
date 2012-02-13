@@ -78,12 +78,12 @@ Runs Magnolia CMS as a plugin in Grails
             split.each {
                 if (it != null) {
                     String[] filterDef = it.split(",")
-                    "${filterDef[0]}"(this.getClass().getClassLoader().loadClass(filterDef[1])) {bean ->
-                        bean.'lazyInit' = true
-                    }
+                    "${filterDef[0]}"(this.getClass().getClassLoader().loadClass(filterDef[1]))
                 }
             }
         }
+
+        urlMapping(com.altaworks.spring.SelectiveUrlMappingFilter)
 
     }
 
@@ -93,46 +93,49 @@ Runs Magnolia CMS as a plugin in Grails
     }
 
     private def addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication) {
+
         grailsApplication.controllerClasses.each {controllerClass ->
             if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
                 controllerClass.metaClass.getTemplateContent = {
-                    AggregationState aggregationState = MgnlContext.getAggregationState();
-                    return aggregationState.getMainContent();
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getAggregationState().getMainContent();
+
                 }
                 controllerClass.metaClass.getTemplateContentMap = {
-                    AggregationState aggregationState = MgnlContext.getAggregationState();
-                    return new ContentMap(aggregationState.getMainContent().getJCRNode());
+                    if (MgnlContext.isWebContext())
+                        return new ContentMap(MgnlContext.getAggregationState().getMainContent().getJCRNode());
                 }
             }
             if (controllerClass.getClazz().isAnnotationPresent(Paragraph.class)) {
                 controllerClass.metaClass.getContent = {
-                    AggregationState aggregationState = MgnlContext.getAggregationState();
-                    Content currentContent = aggregationState.getCurrentContent();
-                    return currentContent;
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getAggregationState().getCurrentContent();
                 }
                 controllerClass.metaClass.getContentMap = {
-                    AggregationState aggregationState = MgnlContext.getAggregationState();
-                    Content currentContent = aggregationState.getCurrentContent();
-                    return new ContentMap(currentContent.getJCRNode());
+                    if (MgnlContext.isWebContext())
+                        return new ContentMap(MgnlContext.getAggregationState().getCurrentContent().getJCRNode());
                 }
             }
             if ((controllerClass.getClazz().isAnnotationPresent(Template.class)) || (controllerClass.getClazz().isAnnotationPresent(Paragraph.class))) {
                 controllerClass.metaClass.getUser = {
-                    return MgnlContext.getUser();
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getUser();
                 }
                 controllerClass.metaClass.getAggregationState = {
-                    return MgnlContext.getAggregationState();
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getAggregationState();
                 }
                 controllerClass.metaClass.getWebContext = {
-                    return MgnlContext.getWebContext();
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getWebContext();
                 }
                 controllerClass.metaClass.getContext = {
-                    return MgnlContext.getInstance();
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getInstance();
                 }
                 controllerClass.metaClass.getContentMap = {
-                    AggregationState aggregationState = MgnlContext.getAggregationState();
-                    Content currentContent = aggregationState.getCurrentContent();
-                    return new ContentMap(currentContent.getJCRNode());
+                    if (MgnlContext.isWebContext())
+                        return new ContentMap(MgnlContext.getAggregationState().getCurrentContent().getJCRNode());
                 }
             }
 
