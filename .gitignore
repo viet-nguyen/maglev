@@ -16,3 +16,4 @@ web-app/logs
 web-app/WEB-INF/web.xml
 plugin.xml
 grails-maglev-*.zip
+web-app/WEB-INF/bootstrap
