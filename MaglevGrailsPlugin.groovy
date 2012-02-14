@@ -18,7 +18,7 @@ class MaglevGrailsPlugin {
     def dependsOn = [core: "2.0.0 > *"]
 
     // since we need to remove grails dispatcher, which is added by controllers-plugin
-    def loadAfter = ['controllers']
+    def loadAfter = ['controllers', 'webxml']
 
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
@@ -43,7 +43,7 @@ Runs Magnolia CMS as a plugin in Grails
     def watchedResources = ["file:./grails-app/controllers/**/*Controller.groovy",
             "file:./plugins/*/grails-app/controllers/**/*Controller.groovy"]
 
-    def documentation = "http://grails.org/plugin/grails-mgnl"
+    def documentation = "https://github.com/Bonheur/maglev/wiki"
 
     def doWithWebDescriptor = { xml ->
         def contextParam = xml.'context-param'
@@ -68,6 +68,13 @@ Runs Magnolia CMS as a plugin in Grails
         }
 
     }
+
+    def getWebXmlFilterOrder() {
+        def FilterManager =
+            getClass().getClassLoader().loadClass('grails.plugin.webxml.FilterManager')
+            [magnoliaFilterChain: FilterManager.URL_MAPPING_POSITION + 100]
+    }
+
 
     def doWithSpring = {
         blossomConfiguration(info.magnolia.module.blossom.BlossomConfiguration);
