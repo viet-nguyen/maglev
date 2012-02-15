@@ -140,10 +140,6 @@ Runs Magnolia CMS as a plugin in Grails
                     if (MgnlContext.isWebContext())
                         return MgnlContext.getInstance();
                 }
-                controllerClass.metaClass.getContentMap = {
-                    if (MgnlContext.isWebContext())
-                        return new ContentMap(MgnlContext.getAggregationState().getCurrentContent().getJCRNode());
-                }
             }
 
         }
