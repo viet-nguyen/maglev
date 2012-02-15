@@ -1,15 +1,19 @@
 class UrlMappings {
 
     static excludes = [
-    "/test*"
+            "/test*"
     ]
 
     static mappings = {
-        "/$controller/$action?/$id?" {
+        "/g/$controller/$action?/$id?" {
             constraints {
                 // apply constraints here
             }
         }
+
+        "/css/*"(controller: "css")
+        "/images/*"(controller: "images")
+        "/js/*"(controller: "js")
 
         "/testvy"(view: "/error")
         "500"(view: '/error')
