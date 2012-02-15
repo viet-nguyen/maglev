@@ -35,6 +35,17 @@ public class GrailsTemplateRegistry extends DefaultBlossomTemplateRegistry imple
 			configNode.createNodeData("type", "blossom");
 			configNode.createNodeData("class", BlossomTemplate.class.getName());
 			configNode.getParent().save();
+		}else{
+			Content configNode = RepositoryUtils.createContentNode(hierarchyManager, TEMPLATES_PATH, templateDescription.getName());
+			configNode.setNodeData("name", templateDescription.getName());
+			configNode.setNodeData("title", templateDescription.getTitle());
+			configNode.setNodeData("description", templateDescription.getDescription());
+			configNode.setNodeData("visible", templateDescription.isVisible());
+			if (StringUtils.isNotBlank(templateDescription.getI18nBasename()))
+				configNode.setNodeData("i18nBasename", templateDescription.getI18nBasename());
+			configNode.setNodeData("type", "blossom");
+			configNode.setNodeData("class", BlossomTemplate.class.getName());
+			configNode.getParent().save();
 		}
 	}
 
