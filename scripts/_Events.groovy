@@ -61,14 +61,6 @@ eventWebXmlEnd = { String tmpfile ->
         }
     }
 
-    def filterMapping = filterMappings.findAll {it.'filter-name'.text() == 'urlMapping'}
-    filterMapping.replaceNode {
-        'filter-mapping'{
-            'filter-name'('urlMapping')
-            'url-pattern'('/*')
-        }
-    }
-
     String filterString = "";
 
     filterList = xml.'filter'
