@@ -13,23 +13,7 @@ class DemoTemplateController extends BaseTemplate {
     def personService
 
     def index = {
-
-        if (request.method == "POST") {
-            //println params
-            if (params.keySet().containsAll(['name', 'age'])) {
-                new Person(name: params.name, age: params.int('age')).save()
-            }
-        }
-        Pet p = new Pet()
-        p.name = 'Random Name ' + Math.random()
-        p.save()
-        //println p.id
-
-        personService.createTobbe()
-     //  println templateContentMap.keySet()
-//		println templateContentMap.values() // This throws exception as not implemented/supported
-
-        render(view: "demoTemplate", model: [pet: p, pets: Pet.findAll()])
+        render view: "demoTemplate"
     }
 
     @DialogFactory("main-properties")

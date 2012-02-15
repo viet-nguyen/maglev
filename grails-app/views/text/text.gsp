@@ -2,8 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="cms-taglib" prefix="cms" %>
 <%@ taglib uri="blossom-taglib" prefix="blossom" %>
-<cms:editBar />
 
+<div class="span4">
+    <cms:editBar/>
+    <h1><cms:out nodeDataName="title"/></h1>
 
-<h1><cms:out nodeDataName="title" /></h1>
-<p><cms:out nodeDataName="body" /></p>
+    <p><cms:out nodeDataName="body"/></p>
+</div>
