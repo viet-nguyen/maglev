@@ -3,11 +3,10 @@
 <html>
 <head>
     <meta content="main" name="layout">
-    <title>Fine wine - ${name}</title>
+    <title>Product - ${name}</title>
     <cms:links />
 </head>
-
-<body>
+e<body>
 <h1>${name}</h1>
 
 <div id="main">
