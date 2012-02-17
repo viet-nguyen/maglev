@@ -24,3 +24,13 @@ log4j = {
 }
 grails.views.default.codec="none" // none, html, base64
 grails.views.gsp.encoding="UTF-8"
+
+environments{
+    development{
+        magnolia.repositories.home="/Users/ake/Downloads/dev/"
+    }
+
+    production{
+        magnolia.repositories.home="/Users/ake/Downloads/prod/"
+    }
+}

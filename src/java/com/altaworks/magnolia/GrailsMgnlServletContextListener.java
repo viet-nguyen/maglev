@@ -11,11 +11,7 @@ import org.slf4j.LoggerFactory;
 import javax.servlet.ServletContextEvent;
 
 /**
- * Created by IntelliJ IDEA.
- * User: kimmo
- * Date: 2011-07-09
- * Time: 21:21
- * To change this template use File | Settings | File Templates.
+ * @author Kimmo Björnsson
  */
 public class GrailsMgnlServletContextListener extends MgnlServletContextListener {
 
