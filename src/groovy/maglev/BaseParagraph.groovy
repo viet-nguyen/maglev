@@ -1,4 +1,4 @@
-package grails.mgnl
+package maglev
 
 /**
  * Created by IntelliJ IDEA.

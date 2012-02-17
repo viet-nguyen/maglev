@@ -1,9 +1,10 @@
-package grails.mgnl
+package maglev.templates
 
 import info.magnolia.module.blossom.annotation.DialogFactory
 import info.magnolia.module.blossom.annotation.Template
 import info.magnolia.module.blossom.dialog.DialogBuilder
 import info.magnolia.module.blossom.dialog.TabBuilder
+import maglev.BaseTemplate
 
 @Template("Demo template")
 class DemoTemplateController extends BaseTemplate {

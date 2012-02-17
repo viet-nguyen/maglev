@@ -1,4 +1,4 @@
-package grails.mgnl
+package maglev.templates
 
 import info.magnolia.module.blossom.annotation.TabOrder
 import info.magnolia.module.blossom.annotation.DialogFactory

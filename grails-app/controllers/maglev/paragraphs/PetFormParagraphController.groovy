@@ -1,8 +1,10 @@
-package grails.mgnl
+package maglev.paragraphs
 
 import info.magnolia.module.blossom.annotation.Paragraph
 import info.magnolia.module.blossom.annotation.TabFactory
 import info.magnolia.module.blossom.dialog.TabBuilder
+import grails.mgnl.Person
+import grails.mgnl.Pet
 
 @Paragraph("Pet form")
 class PetFormParagraphController {

@@ -1,4 +1,6 @@
-package grails.mgnl
+package maglev
+
+import grails.mgnl.Person
 
 class PersonService {
 

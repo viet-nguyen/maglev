@@ -1,8 +1,8 @@
-package grails.mgnl
+package maglev
 
 import grails.test.*
 
-class DemoTemplateControllerTests extends ControllerUnitTestCase {
+class PersonTests extends GrailsUnitTestCase {
     protected void setUp() {
         super.setUp()
     }

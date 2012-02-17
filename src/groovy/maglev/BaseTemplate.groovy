@@ -1,4 +1,4 @@
-package grails.mgnl
+package maglev
 
 abstract class BaseTemplate {
 
