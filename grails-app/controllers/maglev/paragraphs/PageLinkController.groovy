@@ -17,7 +17,7 @@ public class PageLinkController extends BaseParagraph {
     }
 
     @TabFactory("Content")
-    addDialog(TabBuilder tab) {
+    void addDialog(TabBuilder tab) {
         tab.addUuidLink("link", "Link to page", "Link to page")
     }
 

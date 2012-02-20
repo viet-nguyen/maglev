@@ -27,7 +27,7 @@ class PetFormParagraphController {
     }
 
     @TabFactory("Pet")
-    dummyContent(TabBuilder builder) {
+    void dummyContent(TabBuilder builder) {
         builder.addHidden("dummy", "dummy")
     }
 }
