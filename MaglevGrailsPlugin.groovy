@@ -2,8 +2,6 @@ import com.altaworks.magnolia.ContentMap
 import info.magnolia.context.MgnlContext
 import info.magnolia.module.blossom.annotation.Template
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
-import com.altaworks.magnolia.GrailsMgnlServletContextListener
-import com.altaworks.magnolia.GrailsMgnlMainFilter
 
 class MaglevGrailsPlugin {
     // the plugin version
@@ -43,13 +41,11 @@ Runs Magnolia CMS as a plugin in Grails
 
     def doWithWebDescriptor = { xml ->
         def contextParam = xml.'context-param'
-/*
         contextParam[contextParam.size() - 1] + {
             'listener' {
                 'listener-class'(com.altaworks.magnolia.GrailsMgnlServletContextListener.name)
             }
         }
-*/
         /*
         contextParam[contextParam.size() - 1] + {
             'listener' {
@@ -57,19 +53,10 @@ Runs Magnolia CMS as a plugin in Grails
             }
         }*/
 
-        /*
         contextParam[contextParam.size() - 1] + {
             'filter' {
                 'filter-name'('magnoliaFilterChain')
                 'filter-class'(info.magnolia.cms.filters.MgnlMainFilter.name)
-            }
-        }*/
-
-
-        contextParam[contextParam.size() - 1] + {
-            'filter' {
-                'filter-name'('magnoliaFilterChain')
-                'filter-class'(com.altaworks.magnolia.GrailsMgnlMainFilter.name)
             }
         }
 
