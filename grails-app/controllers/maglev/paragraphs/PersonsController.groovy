@@ -1,15 +1,13 @@
 package maglev.paragraphs
 
-import info.magnolia.module.blossom.annotation.Paragraph
-import info.magnolia.module.blossom.annotation.ParagraphDescription
-import info.magnolia.module.blossom.annotation.TabFactory
-import info.magnolia.module.blossom.dialog.TabBuilder
 
 import grails.mgnl.Person
+import info.magnolia.module.blossom.annotation.TabFactory
+import info.magnolia.module.blossom.dialog.TabBuilder
 import maglev.BaseParagraph
 
-@Paragraph("Persons")
-@ParagraphDescription("List of Persons")
+//@Paragraph("Persons")
+//@ParagraphDescription("List of Persons")
 public class PersonsController extends BaseParagraph {
 
     def personService

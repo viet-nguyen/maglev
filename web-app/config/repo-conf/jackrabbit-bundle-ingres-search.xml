@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE Repository PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 1.5//EN" "http://jackrabbit.apache.org/dtd/repository-1.5.dtd">
+<!DOCTYPE Repository PUBLIC "-//The Apache Software Foundation//DTD Jackrabbit 2.0//EN" "http://jackrabbit.apache.org/dtd/repository-2.0.dtd">
 <Repository>
   <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">
     <param name="path" value="${rep.home}/repository" />
   </FileSystem>
-  <Security appName="Jackrabbit">
-    <AccessManager class="org.apache.jackrabbit.core.security.SimpleAccessManager"></AccessManager>
-    <LoginModule class="org.apache.jackrabbit.core.security.SimpleLoginModule">
-      <param name="anonymousId" value="anonymous" />
+  <Security appName="magnolia">
+    <SecurityManager class="org.apache.jackrabbit.core.DefaultSecurityManager"/>
+    <AccessManager class="org.apache.jackrabbit.core.security.DefaultAccessManager">
+    </AccessManager>
+    <!-- login module defined here is used by the repo to authenticate every request. not by the webapp to authenticate user against the webapp context (this one has to be passed before thing here gets invoked -->
+    <LoginModule class="info.magnolia.jaas.sp.jcr.JackrabbitAuthenticationModule">
     </LoginModule>
   </Security>
   <DataStore class="org.apache.jackrabbit.core.data.FileDataStore">
@@ -42,24 +44,18 @@
       <param name="cacheSize" value="1000" />
       <param name="forceConsistencyCheck" value="false" />
       <param name="autoRepair" value="true" />
-      <param name="analyzer" value="org.apache.lucene.analysis.standard.StandardAnalyzer" />
+      <!-- see https://issues.apache.org/jira/browse/JCR-3236 for details -->
+      <!--param name="analyzer" value="org.apache.lucene.analysis.standard.StandardAnalyzer" /-->
       <param name="queryClass" value="org.apache.jackrabbit.core.query.QueryImpl" />
       <param name="respectDocumentOrder" value="true" />
       <param name="resultFetchSize" value="2147483647" />
       <param name="extractorPoolSize" value="3" />
       <param name="extractorTimeout" value="100" />
       <param name="extractorBackLogSize" value="100" />
-      <param name="textFilterClasses"
-        value="org.apache.jackrabbit.extractor.MsWordTextExtractor,
-               org.apache.jackrabbit.extractor.MsExcelTextExtractor,
-               org.apache.jackrabbit.extractor.MsPowerPointTextExtractor,
-               org.apache.jackrabbit.extractor.PdfTextExtractor,
-               org.apache.jackrabbit.extractor.OpenOfficeTextExtractor,
-               org.apache.jackrabbit.extractor.RTFTextExtractor,
-               org.apache.jackrabbit.extractor.HTMLTextExtractor,
-               org.apache.jackrabbit.extractor.PlainTextExtractor,
-               org.apache.jackrabbit.extractor.XMLTextExtractor" />
     </SearchIndex>
+    <WorkspaceSecurity>
+      <AccessControlProvider class="info.magnolia.cms.core.MagnoliaAccessProvider" />
+    </WorkspaceSecurity>
   </Workspace>
   <Versioning rootPath="${rep.home}/version">
     <FileSystem class="org.apache.jackrabbit.core.fs.local.LocalFileSystem">

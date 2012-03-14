@@ -24,24 +24,10 @@ grails.project.dependency.resolution = {
         mavenRepo "http://archiva.kokaihop.se/archiva/repository/internal"
     }
     dependencies {
-        String magnoliaVersion = "4.4.5"
+        String magnoliaVersion = "4.5.1"
+
         runtime('info.magnolia:magnolia-core:' + magnoliaVersion) {
             exclude 'slf4j-log4j12'
-            exclude group: 'commons-logging', name: 'commons-logging'
-        }
-        runtime('info.magnolia:magnolia-module-templating:' + magnoliaVersion) {
-            exclude group: 'commons-logging', name: 'commons-logging'
-        }
-        runtime('info.magnolia:magnolia-module-admininterface:' + magnoliaVersion) {
-            exclude group: 'commons-logging', name: 'commons-logging'
-        }
-        runtime('info.magnolia:magnolia-taglib-utility:' + magnoliaVersion) {
-            exclude group: 'commons-logging', name: 'commons-logging'
-        }
-        runtime('info.magnolia:magnolia-taglib-cms:' + magnoliaVersion) {
-            exclude group: 'commons-logging', name: 'commons-logging'
-        }
-        runtime('info.magnolia:magnolia-module-exchange-simple:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
         runtime('info.magnolia:magnolia-gui:' + magnoliaVersion) {
@@ -50,13 +36,37 @@ grails.project.dependency.resolution = {
         runtime('info.magnolia:magnolia-jaas:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
+        runtime('info.magnolia:magnolia-module-admininterface:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+        runtime('info.magnolia:magnolia-module-exchange-simple:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
         runtime('info.magnolia:magnolia-module-fckeditor:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
         runtime('info.magnolia:magnolia-module-mail:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
-        runtime('org.apache.jackrabbit:jackrabbit-core:1.6.4') {
+        runtime('info.magnolia:magnolia-templating-compatibility-taglib-cms:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+
+        /*
+        runtime('info.magnolia:magnolia-module-store-client:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+        */
+        runtime('info.magnolia:magnolia-rendering:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+        runtime('info.magnolia:magnolia-templating:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+        runtime('info.magnolia:magnolia-templating-editor:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+        runtime('org.apache.jackrabbit:jackrabbit-core:2.4.0') {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
         runtime('javax.jcr:jcr:2.0') {
@@ -65,7 +75,7 @@ grails.project.dependency.resolution = {
         runtime('net.sourceforge.openutils:openutils-log4j:2.0.5') {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
-        runtime('info.magnolia:magnolia-module-blossom:1.2.2') {
+        runtime('info.magnolia:magnolia-module-blossom:2.0') {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
     }

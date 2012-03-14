@@ -1,12 +1,10 @@
 package maglev.templates
 
-import info.magnolia.module.blossom.annotation.DialogFactory
-import info.magnolia.module.blossom.annotation.Template
-import info.magnolia.module.blossom.dialog.DialogBuilder
 import info.magnolia.module.blossom.dialog.TabBuilder
 import maglev.BaseTemplate
+import info.magnolia.module.blossom.annotation.*
 
-@Template("Demo template")
+@Template(id = "grailsModule:pages/demoTemplate", title = "Demo template")
 class DemoTemplateController extends BaseTemplate {
 
     static transactional = true
@@ -17,10 +15,20 @@ class DemoTemplateController extends BaseTemplate {
         render view: "demoTemplate"
     }
 
-    @DialogFactory("main-properties")
-    public void propertiesDialog(DialogBuilder builder) {
-        TabBuilder settings = builder.addTab("Content");
-        settings.addEdit("title", "Title", "");
+    @TabFactory("Content")
+    public void propertiesDialog(TabBuilder builder) {
+        builder.addEdit("title", "Title", "");
     }
+
+    @Area("main")
+    @Inherits
+    @AvailableComponentClasses([SomeContentController.class])
+    class MainAreaController {
+
+        def index = {
+            render(view: "area/mainArea")
+        }
+    }
+
 
 }

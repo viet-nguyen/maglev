@@ -1,22 +1,18 @@
 package com.altaworks.magnolia;
 
 import info.magnolia.context.MgnlContext;
-import info.magnolia.module.blossom.BlossomModule;
-import info.magnolia.module.blossom.annotation.DialogFactory;
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.context.MagnoliaLocaleResolver;
-import info.magnolia.module.blossom.dialog.BlossomDialogRegistry;
 import info.magnolia.module.blossom.dialog.DialogExporter;
 import info.magnolia.module.blossom.dispatcher.BlossomDispatcher;
+import info.magnolia.module.blossom.dispatcher.BlossomDispatcherAwareBeanPostProcessor;
+import info.magnolia.module.blossom.dispatcher.BlossomDispatcherInitializedEvent;
+import info.magnolia.module.blossom.support.BeanFactoryUtils;
 import info.magnolia.module.blossom.support.ForwardRequestWrapper;
 import info.magnolia.module.blossom.support.IncludeRequestWrapper;
+import info.magnolia.module.blossom.template.TemplateExporter;
 import info.magnolia.module.blossom.urimapping.AnnotatedVirtualURIMappingExporter;
 import info.magnolia.module.blossom.urimapping.VirtualURIMappingExporter;
 import org.codehaus.groovy.grails.commons.ApplicationHolder;
-import org.codehaus.groovy.grails.commons.DefaultGrailsControllerClass;
-import org.codehaus.groovy.grails.commons.GrailsApplication;
-import org.codehaus.groovy.grails.commons.GrailsClass;
 import org.codehaus.groovy.grails.web.pages.GroovyPageOutputStack;
 import org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet;
 import org.codehaus.groovy.grails.web.servlet.WrappedResponseHolder;
@@ -26,28 +22,107 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.orm.hibernate3.SessionFactoryUtils;
 import org.springframework.orm.hibernate3.SessionHolder;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
+import org.springframework.util.Assert;
 import org.springframework.web.context.ConfigurableWebApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.HandlerAdapter;
 import org.springframework.web.servlet.LocaleResolver;
 
-import javax.jcr.RepositoryException;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet implements BlossomDispatcher {
+public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet implements BlossomDispatcher, BeanFactoryPostProcessor {
+
+
+	@Override
+	protected Object getDefaultStrategy(ApplicationContext context, Class strategyInterface) throws BeansException {
+		if (strategyInterface.equals(LocaleResolver.class)) {
+			return super.createDefaultStrategy(context, MagnoliaLocaleResolver.class);
+		}
+		return super.getDefaultStrategy(context, strategyInterface);
+	}
+
+	@Override
+	protected void postProcessWebApplicationContext(ConfigurableWebApplicationContext wac) {
+		wac.addBeanFactoryPostProcessor(this);
+	}
+
+	@Override
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+
+		Assert.isInstanceOf(BeanDefinitionRegistry.class, beanFactory);
+
+		BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
+
+		beanFactory.addBeanPostProcessor(new BlossomDispatcherAwareBeanPostProcessor(this));
+
+		BeanFactoryUtils.registerBeanIfMissing(beanFactory, registry, GrailsTemplateExporter.class);
+		BeanFactoryUtils.registerBeanIfMissing(beanFactory, registry, DialogExporter.class);
+		BeanFactoryUtils.registerBeanIfMissing(beanFactory, registry, AnnotatedVirtualURIMappingExporter.class);
+		BeanFactoryUtils.registerBeanIfMissing(beanFactory, registry, VirtualURIMappingExporter.class);
+	}
+
+	@Override
+	protected WebApplicationContext initWebApplicationContext() throws BeansException {
+		WebApplicationContext wac = super.initWebApplicationContext();
+		wac.publishEvent(new BlossomDispatcherInitializedEvent(this));
+		return wac;
+	}
 
 	@Override
 	public HandlerAdapter getHandlerAdapter(Object handler) throws ServletException {
 		return super.getHandlerAdapter(handler);
+	}
+
+
+	public void forward(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String contextPath = request.getContextPath();
+
+		request = new ForwardRequestWrapper(request, contextPath + path, contextPath, path, null);
+
+		MgnlContext.push(request, response);
+		try {
+			super.service(request, response);
+		} finally {
+			MgnlContext.pop();
+		}
+	}
+
+
+	public void include(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String contextPath = request.getContextPath();
+
+		request = new IncludeRequestWrapper(request, contextPath + path, contextPath, path, null, request.getQueryString());
+
+		MgnlContext.push(request, response);
+		try {
+
+
+			HttpServletResponse wrapped = WrappedResponseHolder.getWrappedResponse();
+			response = wrapped != null ? wrapped : response;
+			final IncludeResponseWrapper responseWrapper = new IncludeResponseWrapper(response);
+			WrappedResponseHolder.setWrappedResponse(responseWrapper);
+			super.service(request, responseWrapper);
+
+			GroovyPageOutputStack.currentWriter().write(String.valueOf(responseWrapper.getContent()));
+			WrappedResponseHolder.setWrappedResponse(wrapped);
+
+		} finally {
+			MgnlContext.pop();
+		}
 	}
 
 	@Override
@@ -91,19 +166,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 
 	}
 
-	public void forward(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String contextPath = request.getContextPath();
-
-		request = new ForwardRequestWrapper(request, contextPath + path, contextPath, path, null);
-
-		MgnlContext.push(request, response);
-		try {
-			super.service(request, response);
-		} finally {
-			MgnlContext.pop();
-		}
-	}
 
 	private void unbindHibernateSession() {
 		SessionFactory sessionFactory = (SessionFactory) ApplicationHolder.getApplication().getMainContext().getBean("sessionFactory");
@@ -128,104 +190,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(session));
 	}
 
-	public void include(String path, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		String contextPath = request.getContextPath();
-
-		request = new IncludeRequestWrapper(request, contextPath + path, contextPath, path, null, request.getQueryString());
-
-		MgnlContext.push(request, response);
-		try {
-
-
-			HttpServletResponse wrapped = WrappedResponseHolder.getWrappedResponse();
-			response = wrapped != null ? wrapped : response;
-			final IncludeResponseWrapper responseWrapper = new IncludeResponseWrapper(response);
-			WrappedResponseHolder.setWrappedResponse(responseWrapper);
-			super.service(request, responseWrapper);
-
-			GroovyPageOutputStack.currentWriter().write(String.valueOf(responseWrapper.getContent()));
-			WrappedResponseHolder.setWrappedResponse(wrapped);
-
-		} finally {
-			MgnlContext.pop();
-		}
-	}
-
-
-	@Override
-	protected Object getDefaultStrategy(ApplicationContext context, Class strategyInterface) throws BeansException {
-		if (strategyInterface.equals(LocaleResolver.class))
-			return super.createDefaultStrategy(context, MagnoliaLocaleResolver.class);
-		return super.getDefaultStrategy(context, strategyInterface);
-	}
-
-	public void registerControllers() {
-		GrailsApplication grailsApplication = ApplicationHolder.getApplication();
-		GrailsClass[] allControllerClasses = grailsApplication.getArtefacts("Controller");
-		for (GrailsClass controllerClass : allControllerClasses) {
-			DefaultGrailsControllerClass controller = (DefaultGrailsControllerClass) controllerClass;
-			String handlerPath = controller.getViewByName("");	 // We are assuming that the action to be used as handler will be the default action
-			log("Registering controller on handlerpath" + handlerPath);
-			Object handler = grailsApplication.getMainContext().getBean(controllerClass.getFullName());
-			//register Template
-			registerTemplatesToMagnolia(controllerClass, handlerPath, handler);
-			//register Template
-			registerParagraphsToMagnolia(controllerClass, handlerPath, handler);
-
-			registerDialog(controllerClass, handler, controllerClass.getFullName());
-
-		}
-	}
-
-	private void registerDialog(GrailsClass controllerClass, Object bean, String beanName) {
-		if (controllerClass.getClazz().isAnnotationPresent(DialogFactory.class)) {
-			try {
-				BlossomDialogRegistry dialogRegistry = BlossomModule.getDialogRegistry();
-				dialogRegistry.registerDialogFactory(bean);
-			} catch (RepositoryException e) {
-				logger.error("Unable to register dialog factory [" + bean.getClass().getName() + "] with bean name [" + beanName + "]", e);
-			}
-		}
-	}
-
-	private void registerParagraphsToMagnolia(GrailsClass controllerClass, String handlerPath, Object handler) {
-		if (controllerClass.getClazz().isAnnotationPresent(Paragraph.class)) {
-			try {
-				BlossomModule.getParagraphRegistry().registerParagraph(this, handler, handlerPath);
-			} catch (RepositoryException e) {
-				logger.error("Unable to register paragraph [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
-			}
-		}
-	}
-
-	private void registerTemplatesToMagnolia(GrailsClass controllerClass, String handlerPath, Object handler) {
-		if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
-			try {
-				BlossomModule.getTemplateRegistry().registerTemplate(this, handler, handlerPath);
-			} catch (RepositoryException e) {
-				logger.error("Unable to register template [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
-			}
-			try {
-				BlossomModule.getDialogRegistry().registerDialogFactories(handler);
-			} catch (RepositoryException e) {
-				logger.error("Unable to register dialog factories within template [" + handler.getClass().getName() + "] with handlerPath [" + handlerPath + "]", e);
-			}
-		}
-	}
-
-
-	@Override
-	protected void onRefresh
-			(ApplicationContext
-					 context) throws BeansException {
-
-		super.onRefresh(context);
-		context.getAutowireCapableBeanFactory().createBean(DialogExporter.class);
-		context.getAutowireCapableBeanFactory().createBean(AnnotatedVirtualURIMappingExporter.class);
-		context.getAutowireCapableBeanFactory().createBean(VirtualURIMappingExporter.class);
-		registerControllers();
-	}
 }
 
 

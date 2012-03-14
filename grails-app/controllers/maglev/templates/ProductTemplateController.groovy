@@ -2,7 +2,7 @@ package maglev.templates
 
 import info.magnolia.module.blossom.annotation.Template
 
-@Template("Productpage template")
+//@Template("Productpage template")
 class ProductTemplateController {
 
     def index() {

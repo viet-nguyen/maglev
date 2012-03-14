@@ -1,5 +1,5 @@
 <!--
-    $Id: repositories.xml 27484 2009-08-31 15:46:48Z gjoseph $
+    $Id: repositories.xml 49820 2011-10-06 19:30:43Z had $
 -->
 <!DOCTYPE JCR [
 <!ELEMENT Map (#PCDATA)>

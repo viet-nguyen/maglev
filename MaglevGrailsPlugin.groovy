@@ -1,13 +1,9 @@
 import com.altaworks.magnolia.ContentMap
-import com.altaworks.magnolia.GrailsTemplateRegistry
-import info.magnolia.cms.core.AggregationState
-import info.magnolia.cms.core.Content
 import info.magnolia.context.MgnlContext
-import info.magnolia.module.blossom.BlossomModule
-import info.magnolia.module.blossom.annotation.Paragraph
 import info.magnolia.module.blossom.annotation.Template
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
-import com.altaworks.magnolia.GrailsModule
+import com.altaworks.magnolia.GrailsMgnlServletContextListener
+import com.altaworks.magnolia.GrailsMgnlMainFilter
 
 class MaglevGrailsPlugin {
     // the plugin version
@@ -47,23 +43,33 @@ Runs Magnolia CMS as a plugin in Grails
 
     def doWithWebDescriptor = { xml ->
         def contextParam = xml.'context-param'
-
+/*
         contextParam[contextParam.size() - 1] + {
             'listener' {
                 'listener-class'(com.altaworks.magnolia.GrailsMgnlServletContextListener.name)
             }
         }
-
+*/
+        /*
         contextParam[contextParam.size() - 1] + {
             'listener' {
                 'listener-class'(info.magnolia.module.blossom.support.ServletContextExposingContextListener.name)
             }
-        }
+        }*/
 
+        /*
         contextParam[contextParam.size() - 1] + {
             'filter' {
                 'filter-name'('magnoliaFilterChain')
                 'filter-class'(info.magnolia.cms.filters.MgnlMainFilter.name)
+            }
+        }*/
+
+
+        contextParam[contextParam.size() - 1] + {
+            'filter' {
+                'filter-name'('magnoliaFilterChain')
+                'filter-class'(com.altaworks.magnolia.GrailsMgnlMainFilter.name)
             }
         }
 
@@ -72,12 +78,11 @@ Runs Magnolia CMS as a plugin in Grails
     def getWebXmlFilterOrder() {
         def FilterManager =
             getClass().getClassLoader().loadClass('grails.plugin.webxml.FilterManager')
-            [magnoliaFilterChain: FilterManager.URL_MAPPING_POSITION + 100]
+        [magnoliaFilterChain: FilterManager.URL_MAPPING_POSITION + 100]
     }
 
 
     def doWithSpring = {
-        blossomConfiguration(info.magnolia.module.blossom.BlossomConfiguration);
 
         String parameter = ServletContextHolder.getServletContext().getInitParameter("smartDelegatingFilters")
         if (parameter != null) {
@@ -112,18 +117,6 @@ Runs Magnolia CMS as a plugin in Grails
                     if (MgnlContext.isWebContext())
                         return new ContentMap(MgnlContext.getAggregationState().getMainContent().getJCRNode());
                 }
-            }
-            if (controllerClass.getClazz().isAnnotationPresent(Paragraph.class)) {
-                controllerClass.metaClass.getContent = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getAggregationState().getCurrentContent();
-                }
-                controllerClass.metaClass.getContentMap = {
-                    if (MgnlContext.isWebContext())
-                        return new ContentMap(MgnlContext.getAggregationState().getCurrentContent().getJCRNode());
-                }
-            }
-            if ((controllerClass.getClazz().isAnnotationPresent(Template.class)) || (controllerClass.getClazz().isAnnotationPresent(Paragraph.class))) {
                 controllerClass.metaClass.getUser = {
                     if (MgnlContext.isWebContext())
                         return MgnlContext.getUser();
@@ -146,17 +139,21 @@ Runs Magnolia CMS as a plugin in Grails
     }
 
     def doWithApplicationContext = { applicationContext ->
+        /*
         def templateRegistry = new GrailsTemplateRegistry();
         templateRegistry.afterPropertiesSet();
         def config = applicationContext.getBean("blossomConfiguration")
         config.setTemplateRegistry(templateRegistry);
+        */
+
     }
 
     def onChange = { event ->
+        /*
         BlossomModule.getParagraphRegistry().getParagraphs().clear()
         BlossomModule.getParagraphRegistry().afterPropertiesSet()
         GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
-
+    */
         def grailsApplication = event.ctx.getBean('grailsApplication')
         addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
     }
