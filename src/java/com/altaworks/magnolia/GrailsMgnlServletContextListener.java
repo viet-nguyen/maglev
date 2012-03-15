@@ -36,14 +36,8 @@ public class GrailsMgnlServletContextListener extends MagnoliaServletContextList
 	}
 
 	protected ComponentProviderConfiguration getPlatformComponents() {
-		ComponentProviderConfigurationBuilder configurationBuilder = new ComponentProviderConfigurationBuilder();
-		List<String> resources = getPlatformComponentsResources();
-		ComponentProviderConfiguration platformComponents = configurationBuilder.readConfiguration(resources, "platform");
-		platformComponents.registerInstance(ServletContext.class, servletContext);
-
+		ComponentProviderConfiguration platformComponents = super.getPlatformComponents();
 		platformComponents.registerInstance(ModuleDefinitionReader.class, new GrailsModuleDefinitionReader());
-		// This is needed by DefaultMagnoliaInitPaths for backwards compatibility
-		platformComponents.registerInstance(MagnoliaServletContextListener.class, this);
 		return platformComponents;
 	}
 
