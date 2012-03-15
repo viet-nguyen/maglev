@@ -35,6 +35,7 @@ public class GrailsMgnlServletContextListener extends MagnoliaServletContextList
 		super.contextInitialized(sce);
 	}
 
+	@Override
 	protected ComponentProviderConfiguration getPlatformComponents() {
 		ComponentProviderConfiguration platformComponents = super.getPlatformComponents();
 		platformComponents.registerInstance(ModuleDefinitionReader.class, new GrailsModuleDefinitionReader());
