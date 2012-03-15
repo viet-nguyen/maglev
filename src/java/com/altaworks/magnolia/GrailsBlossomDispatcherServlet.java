@@ -9,10 +9,11 @@ import info.magnolia.module.blossom.dispatcher.BlossomDispatcherInitializedEvent
 import info.magnolia.module.blossom.support.BeanFactoryUtils;
 import info.magnolia.module.blossom.support.ForwardRequestWrapper;
 import info.magnolia.module.blossom.support.IncludeRequestWrapper;
-import info.magnolia.module.blossom.template.TemplateExporter;
 import info.magnolia.module.blossom.urimapping.AnnotatedVirtualURIMappingExporter;
 import info.magnolia.module.blossom.urimapping.VirtualURIMappingExporter;
 import org.codehaus.groovy.grails.commons.ApplicationHolder;
+import org.codehaus.groovy.grails.commons.GrailsApplication;
+import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware;
 import org.codehaus.groovy.grails.web.pages.GroovyPageOutputStack;
 import org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet;
 import org.codehaus.groovy.grails.web.servlet.WrappedResponseHolder;
@@ -42,8 +43,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet implements BlossomDispatcher, BeanFactoryPostProcessor {
+public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet implements BlossomDispatcher, BeanFactoryPostProcessor, GrailsApplicationAware {
 
+	private GrailsApplication grailsApplication;
 
 	@Override
 	protected Object getDefaultStrategy(ApplicationContext context, Class strategyInterface) throws BeansException {
@@ -190,6 +192,10 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(session));
 	}
 
+	@Override
+	public void setGrailsApplication(GrailsApplication grailsApplication) {
+		this.grailsApplication = grailsApplication;
+	}
 }
 
 

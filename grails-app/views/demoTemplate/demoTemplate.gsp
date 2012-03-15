@@ -7,7 +7,7 @@
 <head>
     <meta content="main" name="layout">
     <title>a title</title>
-    <cms:links/>
+    <cms:init />
 </head>
 
 <body>

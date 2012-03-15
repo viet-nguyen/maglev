@@ -1,10 +1,25 @@
 package com.altaworks.magnolia;
 
+import com.google.inject.Stage;
+import info.magnolia.cms.beans.config.ConfigLoader;
+import info.magnolia.cms.core.SystemProperty;
+import info.magnolia.init.MagnoliaConfigurationProperties;
+import info.magnolia.init.MagnoliaInitPaths;
 import info.magnolia.init.MagnoliaServletContextListener;
+import info.magnolia.logging.Log4jConfigurer;
+import info.magnolia.module.ModuleManager;
+import info.magnolia.module.model.reader.ModuleDefinitionReader;
+import info.magnolia.objectfactory.configuration.ComponentConfiguration;
+import info.magnolia.objectfactory.configuration.ComponentProviderConfiguration;
+import info.magnolia.objectfactory.configuration.ComponentProviderConfigurationBuilder;
+import info.magnolia.objectfactory.configuration.ImplementationConfiguration;
+import info.magnolia.objectfactory.guice.GuiceComponentProvider;
+import info.magnolia.objectfactory.guice.GuiceComponentProviderBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,19 +27,25 @@ import java.util.List;
  */
 public class GrailsMgnlServletContextListener extends MagnoliaServletContextListener {
 
-	public void contextInitialized(final ServletContextEvent sce) {
-		//SystemProperty.setProperty(PropertiesInitializer.class.getName(), GrailsPropertiesInitializer.class.getName());
+	private ServletContext servletContext;
 
-		//SystemProperty.setProperty(SystemProperty.MAGNOLIA_APP_ROOTDIR)
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		servletContext = sce.getServletContext();
 		super.contextInitialized(sce);
 	}
 
-	@Override
-	protected List<String> getPlatformComponentsResources() {
-		List<String> platformComponentsResources = super.getPlatformComponentsResources();
-		List<String> components = new ArrayList<String>();
-		components.addAll(platformComponentsResources);
-		components.add("/platform-components.xml");
-		return components;
+	protected ComponentProviderConfiguration getPlatformComponents() {
+		ComponentProviderConfigurationBuilder configurationBuilder = new ComponentProviderConfigurationBuilder();
+		List<String> resources = getPlatformComponentsResources();
+		ComponentProviderConfiguration platformComponents = configurationBuilder.readConfiguration(resources, "platform");
+		platformComponents.registerInstance(ServletContext.class, servletContext);
+
+		platformComponents.registerInstance(ModuleDefinitionReader.class, new GrailsModuleDefinitionReader());
+		// This is needed by DefaultMagnoliaInitPaths for backwards compatibility
+		platformComponents.registerInstance(MagnoliaServletContextListener.class, this);
+		return platformComponents;
 	}
+
+
 }

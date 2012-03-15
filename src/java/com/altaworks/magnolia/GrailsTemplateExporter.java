@@ -6,12 +6,14 @@ import org.codehaus.groovy.grails.commons.DefaultGrailsControllerClass;
 import org.codehaus.groovy.grails.commons.GrailsApplication;
 import org.codehaus.groovy.grails.commons.GrailsClass;
 import org.codehaus.groovy.grails.plugins.support.aware.GrailsApplicationAware;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author Åke Argéus
  */
-public class GrailsTemplateExporter extends TemplateExporter implements GrailsApplicationAware {
+public class GrailsTemplateExporter extends TemplateExporter{
 
+	@Autowired
 	GrailsApplication grailsApplication;
 
 	private static Logger logger = Logger.getLogger(GrailsTemplateExporter.class);
@@ -33,8 +35,4 @@ public class GrailsTemplateExporter extends TemplateExporter implements GrailsAp
 		super.exportTemplates();
 	}
 
-	@Override
-	public void setGrailsApplication(GrailsApplication grailsApplication) {
-		this.grailsApplication = grailsApplication;
-	}
 }
