@@ -8,23 +8,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
 <head>
-    <meta name="layout" content="main" />
+    <meta name="layout" content="main"/>
     <title>${content?.title ?: "ingen titel"}</title>
     <cms:init/>
 </head>
 
 <body>
 
-<div class="row-fluid">
-
-    <h1>${content?.title ?: "ingen titel"}</h1>
-
-    <div></div>
-
-    <div id="mainArea">
-        <cms:area name="mainArea"/>
-    </div>
-
+<h1>${content?.title ?: "ingen titel"}</h1>
+<cms:area name="mainArea"/>
 </body>
 </html>
 

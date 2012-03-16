@@ -1,11 +1,11 @@
 package maglev.templates
 
 import info.magnolia.module.blossom.dialog.TabBuilder
-import info.magnolia.module.blossom.annotation.*
 import maglev.paragraphs.TextController
+import info.magnolia.module.blossom.annotation.*
 
 @Template(id = "grailsModule:pages/demoTemplate", title = "Demo template")
-class DemoTemplateController{
+class DemoTemplateController {
 
     static transactional = true
 
@@ -23,17 +23,11 @@ class DemoTemplateController{
 
     @Area("mainArea")
     @Inherits
-    @AvailableComponentClasses([SomeContentController.class,TextController.class])
+    @AvailableComponentClasses([SomeContentController.class, TextController.class])
     static class MainAreaController {
 
         def index = {
             render(view: "/demoTemplate/mainArea")
-        }
-
-
-        @TabFactory("header")
-        void header(TabBuilder builder){
-            builder.addEdit("header","Header","")
         }
     }
 

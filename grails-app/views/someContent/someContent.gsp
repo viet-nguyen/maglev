@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<div>
-${content.text}
+<div class="span3">
+    ${content.text}
 </div>
