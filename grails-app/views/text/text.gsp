@@ -4,8 +4,6 @@
 <%@ taglib uri="blossom-taglib" prefix="blossom" %>
 
 <div class="span4">
-    <cms:editBar/>
-    <h1><cms:out nodeDataName="title"/></h1>
-
-    <p><cms:out nodeDataName="body"/></p>
+    <h1>${content.title}</h1>
+    <p>${content.body}</p>
 </div>

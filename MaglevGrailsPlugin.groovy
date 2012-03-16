@@ -1,5 +1,10 @@
 import com.altaworks.magnolia.GrailsTemplateExporter
-import org.apache.commons.lang.StringUtils
+import info.magnolia.context.MgnlContext
+import info.magnolia.jcr.util.ContentMap
+import info.magnolia.module.blossom.annotation.Area
+import info.magnolia.module.blossom.annotation.Template
+import info.magnolia.module.blossom.render.RenderContext
+import org.codehaus.groovy.grails.commons.ControllerArtefactHandler
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
 class MaglevGrailsPlugin {
@@ -45,12 +50,6 @@ Runs Magnolia CMS as a plugin in Grails
                 'listener-class'(com.altaworks.magnolia.GrailsMgnlServletContextListener.name)
             }
         }
-        /*
-        contextParam[contextParam.size() - 1] + {
-            'listener' {
-                'listener-class'(info.magnolia.module.blossom.support.ServletContextExposingContextListener.name)
-            }
-        }*/
 
         contextParam[contextParam.size() - 1] + {
             'filter' {
@@ -70,30 +69,31 @@ Runs Magnolia CMS as a plugin in Grails
 
     def doWithSpring = {
 
-        String parameter = ServletContextHolder.getServletContext().getInitParameter("smartDelegatingFilters")
-        if (parameter != null) {
-            String[] split = parameter.split(";")
-            split.each {
-                if (it != null) {
-                    String[] filterDef = it.split(",")
-                    "${filterDef[0]}"(this.getClass().getClassLoader().loadClass(filterDef[1]))
+        if (ServletContextHolder.getServletContext()) {
+            String parameter = ServletContextHolder.getServletContext().getInitParameter("smartDelegatingFilters")
+            if (parameter != null) {
+                String[] split = parameter.split(";")
+                split.each {
+                    if (it != null) {
+                        String[] filterDef = it.split(",")
+                        "${filterDef[0]}"(this.getClass().getClassLoader().loadClass(filterDef[1]))
+                    }
                 }
             }
+
+            urlMapping(com.altaworks.spring.SelectiveUrlMappingFilter)
+
         }
 
-        urlMapping(com.altaworks.spring.SelectiveUrlMappingFilter)
-
         for (controller in application.controllerClasses) {
-            println controller.clazz
             for (Class<?> aClass: controller.clazz.classes) {
                 def name = aClass.getName()
                 application.addArtefact(aClass)
-                "${name}"(aClass){ bean ->
+                "${name}"(aClass) { bean ->
                     bean.autowire = "byName"
                 }
             }
         }
-
 
     }
 
@@ -104,18 +104,13 @@ Runs Magnolia CMS as a plugin in Grails
 
     private def addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication) {
 
-        /*
-
         grailsApplication.controllerClasses.each {controllerClass ->
             if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
-                controllerClass.metaClass.getTemplateContent = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getAggregationState().getMainContent();
-
-                }
-                controllerClass.metaClass.getTemplateContentMap = {
-                    if (MgnlContext.isWebContext())
-                        return new ContentMap(MgnlContext.getAggregationState().getMainContent().getJCRNode());
+                controllerClass.metaClass.getContent = {
+                    if (MgnlContext.isWebContext()) {
+                        if (MgnlContext.aggregationState.currentContent)
+                            return new ContentMap((javax.jcr.Node) MgnlContext.aggregationState.currentContent.JCRNode)
+                    }
                 }
                 controllerClass.metaClass.getUser = {
                     if (MgnlContext.isWebContext())
@@ -125,43 +120,60 @@ Runs Magnolia CMS as a plugin in Grails
                     if (MgnlContext.isWebContext())
                         return MgnlContext.getAggregationState();
                 }
-                controllerClass.metaClass.getWebContext = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getWebContext();
+            } else if (controllerClass.getClazz().isAnnotationPresent(Area.class)) {
+                controllerClass.metaClass.getContent = {
+                    if (MgnlContext.isWebContext()) {
+                        if (MgnlContext.aggregationState.currentContent)
+                            return new ContentMap((javax.jcr.Node) MgnlContext.aggregationState.currentContent.JCRNode)
+                    }
                 }
-                controllerClass.metaClass.getContext = {
+                controllerClass.metaClass.getUser = {
                     if (MgnlContext.isWebContext())
-                        return MgnlContext.getInstance();
+                        return MgnlContext.getUser();
+                }
+                controllerClass.metaClass.getAggregationState = {
+                    if (MgnlContext.isWebContext())
+                        return MgnlContext.getAggregationState();
+                }
+                controllerClass.metaClass.getComponents = {
+                    if (MgnlContext.isWebContext())
+                        RenderContext.get().contextObjects.get("components")
                 }
             }
 
         }
-        */
-    }
-
-    def doWithApplicationContext = { applicationContext ->
-        /*
-        def templateRegistry = new GrailsTemplateRegistry();
-        templateRegistry.afterPropertiesSet();
-        def config = applicationContext.getBean("blossomConfiguration")
-        config.setTemplateRegistry(templateRegistry);
-        */
-
     }
 
     def onChange = { event ->
-        /*
-        BlossomModule.getParagraphRegistry().getParagraphs().clear()
-        BlossomModule.getParagraphRegistry().afterPropertiesSet()
-        GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
-    */
 
-        def grailsApplication = event.ctx.getBean('grailsApplication')
+        if (application.isArtefactOfType(ControllerArtefactHandler.TYPE, event.source)) {
+            def context = event.ctx
+            if (!context) {
+                if (log.isDebugEnabled()) {
+                    log.debug("Application context not found. Can't reload")
+                }
+                return
+            }
 
-        event.ctx.getBeansOfType(GrailsTemplateExporter.class).each {it.exportTemplates()}
+            def controllerClass = application.addArtefact(ControllerArtefactHandler.TYPE, event.source)
+            for (Class<?> aClass: controllerClass.clazz.classes) {
+                def name = aClass.getName()
+                application.addArtefact(aClass)
+                def beanDefinitions = beans {
+                    "${name}"(aClass) { bean ->
+                        bean.autowire = true
+                    }
+                }
+                beanDefinitions.registerBeans(event.ctx)
+                controllerClass.initialize()
+            }
 
+            context.getBeansOfType(GrailsTemplateExporter.class).each {it.exportTemplates()}
 
-        addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
+            addMagnoliaPropertiesToTemplatesAndParagraphs(application)
+
+        }
+
     }
 
 }

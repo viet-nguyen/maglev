@@ -8,19 +8,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
 <head>
-    <title>a title</title>
-    <cms:init />
+    <title>${content?.title ?: "ingen titel"}</title>
+    <cms:init/>
 </head>
 
 <body>
 
 <div class="row-fluid">
 
-    <h1>Grails Magnolia Demo</h1>
+    <h1>${content?.title ?: "ingen titel"}</h1>
+
+    <div></div>
 
     <div id="mainArea">
-        <cms:area name="mainArea" />
+        <cms:area name="mainArea"/>
     </div>
 
+</body>
 </html>
 

@@ -43,9 +43,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet implements BlossomDispatcher, BeanFactoryPostProcessor, GrailsApplicationAware {
-
-	private GrailsApplication grailsApplication;
+public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet implements BlossomDispatcher, BeanFactoryPostProcessor {
 
 	@Override
 	protected Object getDefaultStrategy(ApplicationContext context, Class strategyInterface) throws BeansException {
@@ -192,10 +190,6 @@ public class GrailsBlossomDispatcherServlet extends GrailsDispatcherServlet impl
 		TransactionSynchronizationManager.bindResource(sessionFactory, new SessionHolder(session));
 	}
 
-	@Override
-	public void setGrailsApplication(GrailsApplication grailsApplication) {
-		this.grailsApplication = grailsApplication;
-	}
 }
 
 
