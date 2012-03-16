@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
 <head>
+    <meta name="layout" content="main" />
     <title>${content?.title ?: "ingen titel"}</title>
     <cms:init/>
 </head>
