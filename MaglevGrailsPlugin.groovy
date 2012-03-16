@@ -1,6 +1,5 @@
-import com.altaworks.magnolia.ContentMap
-import info.magnolia.context.MgnlContext
-import info.magnolia.module.blossom.annotation.Template
+import com.altaworks.magnolia.GrailsTemplateExporter
+import org.apache.commons.lang.StringUtils
 import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
 class MaglevGrailsPlugin {
@@ -84,6 +83,18 @@ Runs Magnolia CMS as a plugin in Grails
 
         urlMapping(com.altaworks.spring.SelectiveUrlMappingFilter)
 
+        for (controller in application.controllerClasses) {
+            println controller.clazz
+            for (Class<?> aClass: controller.clazz.classes) {
+                def name = aClass.getName()
+                application.addArtefact(aClass)
+                "${name}"(aClass){ bean ->
+                    bean.autowire = "byName"
+                }
+            }
+        }
+
+
     }
 
     def doWithDynamicMethods = { ctx ->
@@ -92,6 +103,8 @@ Runs Magnolia CMS as a plugin in Grails
     }
 
     private def addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication) {
+
+        /*
 
         grailsApplication.controllerClasses.each {controllerClass ->
             if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
@@ -123,6 +136,7 @@ Runs Magnolia CMS as a plugin in Grails
             }
 
         }
+        */
     }
 
     def doWithApplicationContext = { applicationContext ->
@@ -141,7 +155,12 @@ Runs Magnolia CMS as a plugin in Grails
         BlossomModule.getParagraphRegistry().afterPropertiesSet()
         GrailsModule.grailsBlossomDispatcherServlet.registerControllers()
     */
+
         def grailsApplication = event.ctx.getBean('grailsApplication')
+
+        event.ctx.getBeansOfType(GrailsTemplateExporter.class).each {it.exportTemplates()}
+
+
         addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
     }
 

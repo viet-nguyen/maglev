@@ -48,15 +48,20 @@ grails.project.dependency.resolution = {
         runtime('info.magnolia:magnolia-module-mail:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
-        runtime('info.magnolia:magnolia-templating-compatibility-taglib-cms:' + magnoliaVersion) {
+
+        runtime('info.magnolia:magnolia-templating-jsp:' + magnoliaVersion) {
+            exclude group: 'commons-logging', name: 'commons-logging'
+        }
+
+        runtime('info.magnolia:magnolia-templating-samples:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
 
         /*
-        runtime('info.magnolia:magnolia-module-store-client:' + magnoliaVersion) {
+        runtime('info.magnolia:magnolia-templating-compatibility-taglib-cms:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }
-        */
+*/
         runtime('info.magnolia:magnolia-rendering:' + magnoliaVersion) {
             exclude group: 'commons-logging', name: 'commons-logging'
         }

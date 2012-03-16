@@ -2,14 +2,13 @@ package maglev.paragraphs
 
 import info.magnolia.module.blossom.annotation.TabFactory
 import info.magnolia.module.blossom.dialog.TabBuilder
-import maglev.BaseParagraph
 
 /**
  * Simple paragraph for adding text to a page.
  */
 //@Paragraph("Text")
 //@ParagraphDescription("Simple text block")
-public class TextController extends BaseParagraph {
+public class TextController{
 
     def index = {
         def x = 10;

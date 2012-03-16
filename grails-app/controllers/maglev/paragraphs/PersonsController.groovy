@@ -4,11 +4,10 @@ package maglev.paragraphs
 import grails.mgnl.Person
 import info.magnolia.module.blossom.annotation.TabFactory
 import info.magnolia.module.blossom.dialog.TabBuilder
-import maglev.BaseParagraph
 
 //@Paragraph("Persons")
 //@ParagraphDescription("List of Persons")
-public class PersonsController extends BaseParagraph {
+public class PersonsController{
 
     def personService
 
