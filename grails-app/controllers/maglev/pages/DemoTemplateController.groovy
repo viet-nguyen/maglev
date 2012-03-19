@@ -4,6 +4,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder
 import maglev.components.TextController
 import info.magnolia.module.blossom.annotation.*
 import maglev.components.SomeContentController
+import maglev.components.PetFormParagraphController
 
 @Template(id = "grailsModule:pages/demoTemplate", title = "Demo template")
 class DemoTemplateController {
@@ -24,7 +25,7 @@ class DemoTemplateController {
 
     @Area("mainArea")
     @Inherits
-    @AvailableComponentClasses([SomeContentController.class, TextController.class])
+    @AvailableComponentClasses([SomeContentController.class, TextController.class,PetFormParagraphController.class])
     static class MainAreaController {
 
         def index = {

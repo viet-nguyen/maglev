@@ -99,52 +99,56 @@ Runs Magnolia CMS as a plugin in Grails
 
     def doWithDynamicMethods = { ctx ->
         def grailsApplication = ctx.getBean('grailsApplication')
-        addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication)
+        addMagnoliaPropertiesToTemplates(grailsApplication)
     }
 
-    private def addMagnoliaPropertiesToTemplatesAndParagraphs(grailsApplication) {
+    private def addMagnoliaPropertiesToTemplates(grailsApplication) {
 
         grailsApplication.controllerClasses.each {controllerClass ->
-            if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
-                controllerClass.metaClass.getContent = {
-                    if (MgnlContext.isWebContext()) {
-                        if (MgnlContext.aggregationState.currentContent)
-                            return new ContentMap((javax.jcr.Node) MgnlContext.aggregationState.currentContent.JCRNode)
-                    }
-                }
-                controllerClass.metaClass.getUser = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getUser();
-                }
-                controllerClass.metaClass.getAggregationState = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getAggregationState();
-                }
-            } else if (controllerClass.getClazz().isAnnotationPresent(Area.class)) {
-                controllerClass.metaClass.getContent = {
-                    if (MgnlContext.isWebContext()) {
-                        if (MgnlContext.aggregationState.currentContent)
-                            return new ContentMap((javax.jcr.Node) MgnlContext.aggregationState.currentContent.JCRNode)
-                    }
-                }
-                controllerClass.metaClass.getUser = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getUser();
-                }
-                controllerClass.metaClass.getAggregationState = {
-                    if (MgnlContext.isWebContext())
-                        return MgnlContext.getAggregationState();
-                }
-                controllerClass.metaClass.getComponents = {
-                    if (MgnlContext.isWebContext())
-                        RenderContext.get().contextObjects.get("components")
+            addTemplateProperties(controllerClass)
+        }
+    }
+
+    private def addTemplateProperties(controllerClass) {
+        if (controllerClass.getClazz().isAnnotationPresent(Template.class)) {
+            controllerClass.metaClass.getContent = {
+                if (MgnlContext.isWebContext()) {
+                    if (MgnlContext.aggregationState.currentContent)
+                        return new ContentMap((javax.jcr.Node) MgnlContext.aggregationState.currentContent.JCRNode)
                 }
             }
-
+            controllerClass.metaClass.getUser = {
+                if (MgnlContext.isWebContext())
+                    return MgnlContext.getUser();
+            }
+            controllerClass.metaClass.getAggregationState = {
+                if (MgnlContext.isWebContext())
+                    return MgnlContext.getAggregationState();
+            }
+        } else if (controllerClass.getClazz().isAnnotationPresent(Area.class)) {
+            controllerClass.metaClass.getContent = {
+                if (MgnlContext.isWebContext()) {
+                    if (MgnlContext.aggregationState.currentContent)
+                        return new ContentMap((javax.jcr.Node) MgnlContext.aggregationState.currentContent.JCRNode)
+                }
+            }
+            controllerClass.metaClass.getUser = {
+                if (MgnlContext.isWebContext())
+                    return MgnlContext.getUser();
+            }
+            controllerClass.metaClass.getAggregationState = {
+                if (MgnlContext.isWebContext())
+                    return MgnlContext.getAggregationState();
+            }
+            controllerClass.metaClass.getComponents = {
+                if (MgnlContext.isWebContext())
+                    RenderContext.get().contextObjects.get("components")
+            }
         }
     }
 
     def onChange = { event ->
+
 
         if (application.isArtefactOfType(ControllerArtefactHandler.TYPE, event.source)) {
             def context = event.ctx
@@ -155,8 +159,9 @@ Runs Magnolia CMS as a plugin in Grails
                 return
             }
 
-            def controllerClass = application.addArtefact(ControllerArtefactHandler.TYPE, event.source)
-            for (Class<?> aClass: controllerClass.clazz.classes) {
+
+
+            for (Class<?> aClass: event.source.class.classes) {
                 def name = aClass.getName()
                 application.addArtefact(aClass)
                 def beanDefinitions = beans {
@@ -165,12 +170,15 @@ Runs Magnolia CMS as a plugin in Grails
                     }
                 }
                 beanDefinitions.registerBeans(event.ctx)
-                controllerClass.initialize()
+                aClass.initialize()
             }
 
-            context.getBeansOfType(GrailsTemplateExporter.class).each {it.exportTemplates()}
-
-            addMagnoliaPropertiesToTemplatesAndParagraphs(application)
+            GrailsTemplateExporter.reload()
+/*
+            context.getBeansOfType(GrailsTemplateExporter.class).each{
+                it.reload()
+            }
+            */
 
         }
 

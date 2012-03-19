@@ -1,29 +1,22 @@
 package maglev.components
 
-import info.magnolia.module.blossom.annotation.TabFactory
-import info.magnolia.module.blossom.dialog.TabBuilder
 import grails.mgnl.Person
 import grails.mgnl.Pet
+import info.magnolia.module.blossom.annotation.TabFactory
+import info.magnolia.module.blossom.annotation.Template
+import info.magnolia.module.blossom.dialog.TabBuilder
+import info.magnolia.module.blossom.annotation.TemplateDescription
 
-//@Paragraph("Pet form")
+@Template(id = "grailsModule:components/petForm", title = "Pet form")
+@TemplateDescription("Some kind of pet form that does nothing...")
 class PetFormParagraphController {
 
-    def personService
-
     def index = {
-
-        if (request.method == "POST") {
-            if (params.keySet().containsAll(['name', 'age'])) {
-                new Person(name: params.name, age: params.int('age')).save()
-            }
+        if (params.keySet().containsAll(['name', 'age'])) {
+            def p = new Person(name: params.name, age: params.int('age'))
+            p.save()
         }
-        Pet p = new Pet()
-        p.name = 'Random Name ' + Math.random()
-        p.save()
-
-        personService.createTobbe()
-
-        render(view: "petForm", model: [pet: p, pets: Pet.findAll()])
+        render(view: "petForm", model: [pets: Pet.findAll()])
     }
 
     @TabFactory("Pet")
