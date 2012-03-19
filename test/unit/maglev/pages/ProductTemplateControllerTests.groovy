@@ -1,9 +1,8 @@
-package maglev.templates
+package maglev.pages
 
 
 
 import grails.test.mixin.*
-import maglev.templates.ProductTemplateController
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions

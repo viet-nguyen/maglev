@@ -1,4 +1,4 @@
-package maglev.paragraphs
+package maglev.components
 
 import com.altaworks.magnolia.MagnoliaUtils
 import info.magnolia.module.blossom.annotation.TabFactory

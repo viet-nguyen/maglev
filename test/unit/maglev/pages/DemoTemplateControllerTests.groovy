@@ -1,4 +1,4 @@
-package maglev.templates
+package maglev.pages
 
 import grails.test.*
 

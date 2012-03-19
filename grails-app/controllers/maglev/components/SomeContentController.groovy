@@ -1,4 +1,4 @@
-package maglev.templates
+package maglev.components
 
 import info.magnolia.module.blossom.annotation.Template
 import info.magnolia.module.blossom.dialog.TabBuilder

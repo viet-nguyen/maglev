@@ -1,4 +1,4 @@
-package maglev.paragraphs
+package maglev.components
 
 
 import grails.mgnl.Person

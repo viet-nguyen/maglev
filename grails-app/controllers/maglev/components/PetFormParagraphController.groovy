@@ -1,4 +1,4 @@
-package maglev.paragraphs
+package maglev.components
 
 import info.magnolia.module.blossom.annotation.TabFactory
 import info.magnolia.module.blossom.dialog.TabBuilder
@@ -11,6 +11,7 @@ class PetFormParagraphController {
     def personService
 
     def index = {
+
         if (request.method == "POST") {
             if (params.keySet().containsAll(['name', 'age'])) {
                 new Person(name: params.name, age: params.int('age')).save()

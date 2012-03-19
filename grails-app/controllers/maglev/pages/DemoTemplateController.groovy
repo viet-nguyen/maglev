@@ -1,8 +1,9 @@
-package maglev.templates
+package maglev.pages
 
 import info.magnolia.module.blossom.dialog.TabBuilder
-import maglev.paragraphs.TextController
+import maglev.components.TextController
 import info.magnolia.module.blossom.annotation.*
+import maglev.components.SomeContentController
 
 @Template(id = "grailsModule:pages/demoTemplate", title = "Demo template")
 class DemoTemplateController {

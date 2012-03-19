@@ -1,20 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib uri="cms-taglib" prefix="cms" %>
+<%@ taglib prefix="cms" uri="http://magnolia-cms.com/taglib/templating-components/cms" %>
+<%@ taglib prefix="cmsfn" uri="http://magnolia-cms.com/taglib/templating-components/cmsfn" %>
 <html>
 <head>
     <meta content="main" name="layout">
     <title>Product - ${name}</title>
-    <cms:links />
+    <cms:init/>
 </head>
-e<body>
-<h1>${name}</h1>
 
-<div id="main">
-    <cms:contentNodeIterator contentNodeCollectionName="main">
-        <cms:includeTemplate/>
-    </cms:contentNodeIterator>
-    <cms:newBar contentNodeCollectionName="main" paragraph="text, persons, pageLink"/>
+<body>
+<div class="page-header">
+    <h1>${name}</h1>
 </div>
-
+<cms:area name="mainArea"/>
 </body>
 </html>

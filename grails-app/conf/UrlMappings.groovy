@@ -15,7 +15,6 @@ class UrlMappings {
         "/images/*"(controller: "images")
         "/js/*"(controller: "js")
 
-        "/testvy"(view: "/error")
         "500"(view: '/error')
     }
 

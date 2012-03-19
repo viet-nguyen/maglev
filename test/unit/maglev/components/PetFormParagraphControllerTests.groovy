@@ -1,15 +1,14 @@
-package maglev.templates
+package maglev.components
 
 
 
 import grails.test.mixin.*
-import org.junit.*
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
-@TestFor(SomeContentController)
-class SomeContentControllerTests {
+@TestFor(PetFormParagraphController)
+class PetFormParagraphControllerTests {
 
     void testSomething() {
        fail "Implement me"
