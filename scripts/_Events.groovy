@@ -7,12 +7,6 @@ eventCompileStart = { kind ->
     if (!configFolder.exists()) {
         ant.copydir(src: "${basedir}/web-app/config", dest: "${basedir}/web-app/WEB-INF/config")
     }
-
-    File bootstrapfolder = new File("${basedir}/web-app/WEB-INF/bootstrap")
-    if (!bootstrapfolder.exists()) {
-        ant.copydir(src: "${basedir}/web-app/bootstrap", dest: "${basedir}/web-app/WEB-INF/bootstrap")
-    }
-
 }
 
 eventWebXmlEnd = { String tmpfile ->

@@ -2,10 +2,8 @@ package com.altaworks.magnolia;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
 import info.magnolia.module.InstallContext;
-import info.magnolia.module.delta.BootstrapSingleResource;
 import info.magnolia.module.delta.Task;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,9 +11,12 @@ import java.util.List;
  */
 public class GrailsModuleVersionHandler extends DefaultModuleVersionHandler {
 
-    @Override
-    protected List<Task> getExtraInstallTasks(InstallContext installContext) {
-        ArrayList<Task> tasks = new ArrayList<Task>();
-        return tasks;
-    }
+
+	@Override
+	protected List<Task> getBasicInstallTasks(InstallContext installContext) {
+		List<Task> basicInstallTasks = super.getBasicInstallTasks(installContext);
+		basicInstallTasks.add(new BootstrapGrailsResources());
+		return basicInstallTasks;
+	}
+
 }
