@@ -43,7 +43,7 @@ class DemoTemplateController {
     }
 
     @Area("rightColumn")
-    @Inherits
+    @Inherits(components = ComponentInheritanceMode.ALL)
     @AvailableComponentClasses([SomeContentController.class,
     TextController.class])
     static class RightColumnController {
