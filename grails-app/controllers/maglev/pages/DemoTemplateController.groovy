@@ -1,10 +1,12 @@
 package maglev.pages
 
+
 import info.magnolia.module.blossom.dialog.TabBuilder
+import maglev.components.PageLinkController
+import maglev.components.PersonsController
+import maglev.components.SomeContentController
 import maglev.components.TextController
 import info.magnolia.module.blossom.annotation.*
-import maglev.components.SomeContentController
-import maglev.components.PetFormParagraphController
 
 @Template(id = "grailsModule:pages/demoTemplate", title = "Demo template")
 class DemoTemplateController {
@@ -25,12 +27,36 @@ class DemoTemplateController {
 
     @Area("mainArea")
     @Inherits
-    @AvailableComponentClasses([SomeContentController.class, TextController.class,PetFormParagraphController.class])
+    @AvailableComponentClasses([SomeContentController.class,
+    TextController.class, PersonsController.class,
+    PageLinkController.class])
     static class MainAreaController {
 
         def index = {
             render(view: "/demoTemplate/mainArea")
         }
+
+        @TabFactory("Info")
+        public void propertiesDialog(TabBuilder builder) {
+        }
+
     }
+
+    @Area("rightColumn")
+    @Inherits
+    @AvailableComponentClasses([SomeContentController.class,
+    TextController.class])
+    static class RightColumnController {
+
+        def index = {
+            render(view: "/demoTemplate/rightColumn")
+        }
+
+        @TabFactory("Info")
+        public void propertiesDialog(TabBuilder builder) {
+            builder.addEdit("test","Test","")
+        }
+    }
+
 
 }

@@ -3,18 +3,14 @@ package maglev.components
 import info.magnolia.module.blossom.annotation.TabFactory
 import info.magnolia.module.blossom.dialog.TabBuilder
 import info.magnolia.module.blossom.annotation.Template
+import info.magnolia.module.blossom.annotation.TemplateDescription
+import info.magnolia.module.blossom.annotation.Inherits
 
-/**
- * Simple paragraph for adding text to a page.
- */
-//@Paragraph("Text")
-//@ParagraphDescription("Simple text block")
 @Template(id = "grailsModule:components/text", title = "Text")
+@TemplateDescription("Simple textblock with header")
 public class TextController{
 
     def index = {
-        def x = 10;
-        x += 20
         render(view: "text")
     }
 
@@ -22,5 +18,6 @@ public class TextController{
     public void addDialog(TabBuilder tab) {
         tab.addEdit("title","Title","")
         tab.addFckEditor("body", "Text", "");
+        tab.addCheckbox("inheritable","Inherit","")
     }
 }

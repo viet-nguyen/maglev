@@ -1,23 +1,25 @@
 package maglev.components
 
-
 import grails.mgnl.Person
 import info.magnolia.module.blossom.annotation.TabFactory
+import info.magnolia.module.blossom.annotation.Template
+import info.magnolia.module.blossom.annotation.TemplateDescription
 import info.magnolia.module.blossom.dialog.TabBuilder
 
-//@Paragraph("Persons")
-//@ParagraphDescription("List of Persons")
-public class PersonsController{
+@Template(id = "grailsModule:components/persons", title = "Persons")
+@TemplateDescription("List of persons")
+public class PersonsController {
 
     def personService
 
     def index = {
+        if (request.method == "POST")
+            if (params.keySet().containsAll(['name', 'age'])) {
+                def p = new Person(name: params.name, age: params.int('age'))
+                p.save()
+            }
+
         Map model = [:]
-
-        //println "content testString: " + content?.getNodeData('testString').getString()
-        //println "user: " + user
-        //println "aggregationState: " + aggregationState
-
         def persons = Person.list()
         model.put("persons", persons);
 

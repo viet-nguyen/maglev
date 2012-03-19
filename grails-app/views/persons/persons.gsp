@@ -1,18 +1,28 @@
 <%@ taglib uri="cms-taglib" prefix="cms" %>
-<div class="span8">
+<div>
     <h2>Persons</h2>
-    <cms:editBar/>
-    <p>
-        Test cms:out [<cms:out nodeDataName="testString"/>]
-    </p>
 
-    <p>
-        Test contentMap [${contentMap.testString}]
-    </p>
+    <div>
+        <form action="?" method="post">
+            <table>
+                <tr>
+                    <th align="right">Add A new Person here</th>
+                </tr>
+                <tr>
+                    <th align="right">Name</th>
+                    <th align="right">Age</th>
+                </tr>
+                <tr>
+                    <td align="right"><g:textField name="name"/></td>
+                    <td align="right"><g:textField name="age"/></td>
+                </tr>
+                <tr>
+                    <td align="right"><input type="submit"/></td>
+                </tr>
 
-    <p>
-        Test cms:out to a var, <cms:out nodeDataName="testString" var="newVar"/> [${newVar}]
-    </p>
+            </table>
+        </form>
+    </div>
 
     <table width="100%">
         <tr>

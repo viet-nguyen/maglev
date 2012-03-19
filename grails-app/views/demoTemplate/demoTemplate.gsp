@@ -15,8 +15,16 @@
 
 <body>
 
-<h1>${content?.title ?: "ingen titel"}</h1>
-<cms:area name="mainArea"/>
+<div class="page-header">
+    <h1>${content?.title ?: "ingen titel"}</h1>
+</div>
+
+<div class="row">
+    <cms:area name="mainArea"/>
+    <cms:area name="rightColumn"/>
+</div>
+
+
 </body>
 </html>
 

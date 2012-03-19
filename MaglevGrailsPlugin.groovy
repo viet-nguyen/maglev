@@ -161,16 +161,16 @@ Runs Magnolia CMS as a plugin in Grails
 
 
 
-            for (Class<?> aClass: event.source.class.classes) {
+            for (Class<?> aClass: event.source.classes) {
                 def name = aClass.getName()
-                application.addArtefact(aClass)
+                def cC = application.addArtefact(ControllerArtefactHandler.TYPE, aClass)
                 def beanDefinitions = beans {
                     "${name}"(aClass) { bean ->
                         bean.autowire = true
                     }
                 }
                 beanDefinitions.registerBeans(event.ctx)
-                aClass.initialize()
+                cC.initialize()
             }
 
             GrailsTemplateExporter.reload()

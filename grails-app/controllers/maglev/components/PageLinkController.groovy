@@ -3,9 +3,11 @@ package maglev.components
 import com.altaworks.magnolia.MagnoliaUtils
 import info.magnolia.module.blossom.annotation.TabFactory
 import info.magnolia.module.blossom.dialog.TabBuilder
+import info.magnolia.module.blossom.annotation.Template
+import info.magnolia.module.blossom.annotation.TemplateDescription
 
-//@Paragraph("PageLink")
-//@ParagraphDescription("PageLink Desc")
+@Template(id = "grailsModule:components/pageLink", title = "Page link")
+@TemplateDescription("Simple link to a page")
 public class PageLinkController{
 
     def index = {
