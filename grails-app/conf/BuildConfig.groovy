@@ -21,7 +21,6 @@ grails.project.dependency.resolution = {
         mavenRepo "http://repository.jboss.com/maven2/"
 
         mavenRepo "http://nexus.magnolia-cms.com/content/groups/public/"
-        mavenRepo "http://archiva.kokaihop.se/archiva/repository/internal"
     }
     dependencies {
         String magnoliaVersion = "4.5.1"
