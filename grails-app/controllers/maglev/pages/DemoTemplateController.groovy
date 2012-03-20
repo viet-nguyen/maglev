@@ -11,10 +11,6 @@ import info.magnolia.module.blossom.annotation.*
 @Template(id = "grailsModule:pages/demoTemplate", title = "Demo template")
 class DemoTemplateController {
 
-    static transactional = true
-
-    def personService
-
     def index = {
         render view: "demoTemplate"
     }
@@ -23,7 +19,6 @@ class DemoTemplateController {
     public void propertiesDialog(TabBuilder builder) {
         builder.addEdit("title", "Title", "");
     }
-
 
     @Area("mainArea")
     @Inherits
@@ -57,6 +52,4 @@ class DemoTemplateController {
             builder.addEdit("test","Test","")
         }
     }
-
-
 }
