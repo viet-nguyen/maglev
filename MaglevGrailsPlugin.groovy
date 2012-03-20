@@ -159,8 +159,6 @@ Runs Magnolia CMS as a plugin in Grails
                 return
             }
 
-
-
             for (Class<?> aClass: event.source.classes) {
                 def name = aClass.getName()
                 def cC = application.addArtefact(ControllerArtefactHandler.TYPE, aClass)
