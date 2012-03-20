@@ -11,7 +11,3 @@
 ant.copy(toDir: "${basedir}/web-app/WEB-INF/config") {
 	fileset(dir:"${pluginBasedir}/web-app/config")
 }
-
-ant.copy(toDir: "${basedir}/web-app/WEB-INF/bootstrap") {
-    fileset(dir:"${pluginBasedir}/web-app/bootstrap")
-}
