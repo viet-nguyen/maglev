@@ -23,7 +23,7 @@ grails.project.dependency.resolution = {
         mavenRepo "http://nexus.magnolia-cms.com/content/groups/public/"
     }
     dependencies {
-        String magnoliaVersion = "4.5.1"
+        String magnoliaVersion = "4.5.2"
 
         runtime('info.magnolia:magnolia-core:' + magnoliaVersion) {
             exclude 'slf4j-log4j12'
