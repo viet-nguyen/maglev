@@ -6,7 +6,7 @@ import info.magnolia.module.blossom.dialog.DialogBuilder
 import info.magnolia.module.blossom.dialog.TabBuilder
 
 @Template("Demo template")
-class DemoTemplateController extends BaseTemplate {
+class DemoTemplateController {
 
     static transactional = true
 
@@ -26,10 +26,8 @@ class DemoTemplateController extends BaseTemplate {
         //println p.id
 
         personService.createTobbe()
-     //  println templateContentMap.keySet()
-//		println templateContentMap.values() // This throws exception as not implemented/supported
 
-        render(view: "demoTemplate", model: [pet: p, pets: Pet.findAll()])
+        render(view: "/demoTemplate/demoTemplate", model: [pet: p, pets: Pet.findAll()])
     }
 
     @DialogFactory("main-properties")
