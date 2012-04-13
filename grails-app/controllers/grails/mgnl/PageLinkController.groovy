@@ -8,7 +8,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder
 
 @Paragraph("PageLink")
 @ParagraphDescription("PageLink Desc")
-public class PageLinkController extends BaseParagraph {
+public class PageLinkController {
 
     def index = {
         Map model = ['url': MagnoliaUtils.getUrlFromUuidNodeData("link")]

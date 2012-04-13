@@ -7,7 +7,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder
 
 @Paragraph("Persons")
 @ParagraphDescription("List of Persons")
-public class PersonsController extends BaseParagraph {
+public class PersonsController {
 
     def personService
 

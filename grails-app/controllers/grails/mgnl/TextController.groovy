@@ -10,7 +10,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder
  */
 @Paragraph("Text")
 @ParagraphDescription("Simple text block")
-public class TextController extends BaseParagraph {
+public class TextController {
 
     def index = {
         def x = 10;
