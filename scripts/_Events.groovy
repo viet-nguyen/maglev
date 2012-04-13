@@ -109,7 +109,7 @@ eventWebXmlEnd = { String tmpfile ->
             'dispatcher'('REQUEST')
             'dispatcher'('FORWARD')
             'dispatcher'('INCLUDE')
-            'dispatcher'('ERROR')
+          //  'dispatcher'('ERROR')
 
         }
     }
