@@ -12,6 +12,7 @@ import info.magnolia.module.blossom.annotation.*
 class DemoTemplateController {
 
     def index = {
+        println "Pagetitle:"+content.title?:""
         render view: "demoTemplate"
     }
 

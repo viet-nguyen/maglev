@@ -86,7 +86,7 @@ Runs Magnolia CMS as a plugin in Grails
         }
 
         for (controller in application.controllerClasses) {
-            for (Class<?> aClass: controller.clazz.classes) {
+            for (Class<?> aClass : controller.clazz.classes) {
                 def name = aClass.getName()
                 application.addArtefact(aClass)
                 "${name}"(aClass) { bean ->
@@ -149,7 +149,6 @@ Runs Magnolia CMS as a plugin in Grails
 
     def onChange = { event ->
 
-
         if (application.isArtefactOfType(ControllerArtefactHandler.TYPE, event.source)) {
             def context = event.ctx
             if (!context) {
@@ -159,7 +158,7 @@ Runs Magnolia CMS as a plugin in Grails
                 return
             }
 
-            for (Class<?> aClass: event.source.classes) {
+            for (Class<?> aClass : event.source.classes) {
                 def name = aClass.getName()
                 def cC = application.addArtefact(ControllerArtefactHandler.TYPE, aClass)
                 def beanDefinitions = beans {
@@ -173,6 +172,7 @@ Runs Magnolia CMS as a plugin in Grails
 
             GrailsTemplateExporter.reload()
 
+            addMagnoliaPropertiesToTemplates(application)
         }
 
     }
