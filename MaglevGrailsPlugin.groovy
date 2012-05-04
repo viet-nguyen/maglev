@@ -9,7 +9,7 @@ import org.codehaus.groovy.grails.web.context.ServletContextHolder
 
 class MaglevGrailsPlugin {
     // the plugin version
-    def version = "0.3.4"
+    def version = "0.3.5-SNAPSHOT"
     // the version or versions of Grails the plugin is designed for
     def grailsVersion = "2.0.0 > *"
     // the other plugins this plugin depends on
